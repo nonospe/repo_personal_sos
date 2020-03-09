@@ -1,0 +1,26 @@
+{
+  "name": "f02",
+  "version": "1.0.0",
+  "description": "this package will have the code of the new web server for de feedback 04",
+  "main": "index.js",
+  "dependencies": {
+    "cool-ascii-faces": "^1.3.4",
+    "express": "^4.17.1",
+    "node-modules": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gti-sos/SOS1920-10.git"
+  },
+  "author": "SOS1920-10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gti-sos/SOS1920-10/issues"
+  },
+  "homepage": "https://github.com/gti-sos/SOS1920-10#readme"
+}
