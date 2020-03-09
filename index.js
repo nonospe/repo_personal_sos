@@ -9,8 +9,8 @@ app.get("/time", (request, response) => {
 });
 
 app.listen(80, () => {
-	console.log("Server ready.")
+	console.log("Server ready.");
 });
 
-console.log("Loading Server...")
+console.log("Loading Server...");
 console.log(new Date());
