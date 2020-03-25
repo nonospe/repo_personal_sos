@@ -62,6 +62,101 @@ var globalSuicides = [
 	}	
 ];
 
+// 5-b
+//GET globalSuicides  /api/v1/global-suicides/loadInitialData
+app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
+	globalSuicides = [
+	{
+		country: "Croatia",
+		lengthCoord: 15.977979,
+		latitudeCoord: 45.8144417,
+		year: 2003,
+		men: 31.4,
+		women: 8.4,
+		average: 19.5
+	},
+	{
+		country: "Serbia",
+		lengthCoord: 20.4651299,
+		latitudeCoord: 44.8040085,
+		year: 2002,
+		men: 28.8,
+		women: 10.4,
+		average: 19.3
+	}	,
+	{
+		country: "Belgium",
+		lengthCoord: 4.3487802,
+		latitudeCoord: 50.8504486,
+		year: 2009,
+		men: 28.7,
+		women: 10.9,
+		average: 18.9
+	}	,
+	{
+		country: "South Korea",
+		lengthCoord: 126.9784012,
+		latitudeCoord: 37.5660019,
+		year: 2012,
+		men: 38.2,
+		women: 18.0,
+		average: 28.1
+	}	,
+	{
+		country: "Latvia",
+		lengthCoord: 24.1058903,
+		latitudeCoord: 56.9459991,
+		year: 2004,
+		men: 42.9,
+		women: 8.5,
+		average: 24.3
+	}	
+];
+	
+});
+
+// 6-a
+//GET globalSuicides  /api/v1/global-suicides
+app.get(BASE_API_URL+"/global-suicides",(req, res) => {
+	res.send(JSON.stringify(globalSuicides,null,2));
+});
+
+//6-b
+//POST globalSuicides
+
+//6-c
+//GET globalSuicides  /api/v1/global-suicides/xxx
+
+//6-d
+//DELETE globalSuicides  /api/v1/global-suicides/xxx
+
+//6-e
+//PUT globalSuicides  /api/v1/global-suicides/xxx
+
+//6-f
+//POST globalSuicides  /api/v1/global-suicides/xxx
+
+//6-g
+//PUT globalSuicides  /api/v1/global-suicides
+
+//6-h
+//DELETE globalSuicides  /api/v1/global-suicides
+app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
+	
+	globalSuicides = [];
+	
+	res.sendStatus(200,"OK(Deleted)");
+});
+
+/*====================================================*/
+/*========= API_Jesús Vázquez Rivadeneyra =========*/
+/*====================================================*/
+
+
+
+/*====================================================*/
+/*========= Juan Manuel Cortés Alonso =========*/
+/*====================================================*/
 
 
 
