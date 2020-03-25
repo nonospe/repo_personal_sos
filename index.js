@@ -63,7 +63,7 @@ var globalSuicides = [
 ];
 
 // 5-b
-//GET globalSuicides  /api/v1/global-suicides/loadInitialData
+//GET globalSuicides  /api/v1/global-suicides/loadInitialData FUNCIONA
 app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
 	globalSuicides = [
 	{
@@ -112,35 +112,77 @@ app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
 		average: 24.3
 	}	
 ];
-	
+	res.sendStatus(200,"OK");
 });
 
 // 6-a
-//GET globalSuicides  /api/v1/global-suicides
+//GET globalSuicides  /api/v1/global-suicides FUNCIONA
 app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	res.send(JSON.stringify(globalSuicides,null,2));
 });
 
+
 //6-b
-//POST globalSuicides
+//POST globalSuicides crea un nuevo recurso
+app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
+	
+	var newGlobalSuicides = req.body;
+	
+	if((newGlobalSuicides == "") || (newGlobalSuicides.province == null)){
+		res.sendStatus(400,"BAD REQUEST(Resource empty or null)");
+	} else {
+		tourism.push(newTourism); 	
+		res.sendStatus(201,"CREATED");
+	}
+});
+
 
 //6-c
-//GET globalSuicides  /api/v1/global-suicides/xxx
+//GET globalSuicides  /api/v1/global-suicides/xxx devuelve ese recurso
+app.get(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
+	console.log("ENTRA.");
+	var country = req.params.country;
+	
+	var countryFilter = globalSuicides.filter((c) => {
+		return (c.country == country);
+	});
+	
+	
+	if(countryFilter.length >= 1){
+		res.send(countryFilter[0]);
+		res.sendStatus(200,"OK");
+		console.log("LO HA ENCONTRADO");
+	}else{
+		res.sendStatus(404,"COUNTRY NOT FOUND");
+		console.log("NO HAY");
+	}
+});
 
 //6-d
-//DELETE globalSuicides  /api/v1/global-suicides/xxx
+//DELETE globalSuicides  /api/v1/global-suicides/xxx borra ese recurso
+
 
 //6-e
-//PUT globalSuicides  /api/v1/global-suicides/xxx
+//PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
+
 
 //6-f
-//POST globalSuicides  /api/v1/global-suicides/xxx
+//POST globalSuicides  /api/v1/global-suicides/xxx debe dar un error de método no permitido.
+app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {//REVISAR FORMATO DE URL
+	
+    res.sendStatus(405, "NOT ALLOWED(Post/:country)");
+});
+
 
 //6-g
-//PUT globalSuicides  /api/v1/global-suicides
+//PUT globalSuicides  /api/v1/global-suicides debe dar un error de método no permitido.
+app.put(BASE_API_URL + "/global-suicides", (req, res) => {
+	
+    res.sendStatus(405, "NOT ALLOWED(Put)");
+});
 
 //6-h
-//DELETE globalSuicides  /api/v1/global-suicides
+//DELETE globalSuicides  /api/v1/global-suicides borra todos los recursos
 app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
 	
 	globalSuicides = [];
