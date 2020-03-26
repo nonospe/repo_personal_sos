@@ -244,7 +244,7 @@ var global_marriages = [
 
 //var copyGlobal_Marriages = global_marriages;
 
-const BASE_API_URL="/api/v1";   // ESta es la URL base
+//const BASE_API_URL="/api/v1";   // ESta es la URL base
 
 
 
