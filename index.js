@@ -252,7 +252,7 @@ var global_marriages = [
 //LOADINITIALDATA
 
 app.get(BASE_API_URL + "/global-marriages/loadInitialData", (req, res) => {
-	var global_marriages = [
+	global_marriages = [
 		{"country": "Italy","year": 2018,"marriages": "195,778","avg_wm": 32.4,"avg_m": 35.2},
 		{"country": "Belgium", "year": 2017,   "marriages": "44,329",   "avg_wm": 31.2,   "avg_m": 33.5 },
  		{   "country": "México",   "year": 2011,   "marriages": "570,954",  "avg_wm": 26.3,   "avg_m": 29.2 },
