@@ -233,6 +233,197 @@ app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
 /*========= API_Jesús Vázquez Rivadeneyra =========*/
 /*====================================================*/
 
+var global_marriages = [
+		{"country": "Italy","year": 2018,"marriages": "195,778","avg_wm": 32.4,"avg_m": 35.2},
+		{"country": "Belgium", "year": 2017,   "marriages": "44,329",   "avg_wm": 31.2,   "avg_m": 33.5 },
+ 		{   "country": "México",   "year": 2011,   "marriages": "570,954",  "avg_wm": 26.3,   "avg_m": 29.2 },
+ 		{   "country": "Portugal",   "year": 2016,   "marriages": "32,399",   "avg_wm": 30.4,   "avg_m": 32.2 },
+ 		{   "country": "Suiza",   "year": 2018,   "marriages": "40,716",   "avg_wm": 30.5,   "avg_m": 32.9 }
+	];
+
+
+//var copyGlobal_Marriages = global_marriages;
+
+const BASE_API_URL="/api/v1";   // ESta es la URL base
+
+
+
+//LOADINITIALDATA
+
+app.get(BASE_API_URL + "/global_marriages/loadInitialData", (req, res) => {
+	var global_marriages = [
+		{"country": "Italy","year": 2018,"marriages": "195,778","avg_wm": 32.4,"avg_m": 35.2},
+		{"country": "Belgium", "year": 2017,   "marriages": "44,329",   "avg_wm": 31.2,   "avg_m": 33.5 },
+ 		{   "country": "México",   "year": 2011,   "marriages": "570,954",  "avg_wm": 26.3,   "avg_m": 29.2 },
+ 		{   "country": "Portugal",   "year": 2016,   "marriages": "32,399",   "avg_wm": 30.4,   "avg_m": 32.2 },
+ 		{   "country": "Suiza",   "year": 2018,   "marriages": "40,716",   "avg_wm": 30.5,   "avg_m": 32.9 }
+	];
+	res.send(JSON.stringify(global_marriages,null,2));
+	//res.sendStatus(200);
+});
+
+
+
+
+
+
+
+
+
+
+// FUNCION DEL GET   /marriages/
+app.get(BASE_API_URL+"/global_marriages",(req,res) =>{         //Funcion para cuando nos piden un get. Devuelve todos los contactos 
+	res.send(JSON.stringify(global_marriages,null,2))
+});
+
+// FUNCION DEL GET /marriages/XXXXX
+
+app.get (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+	var country = req.params.country;
+	var year = req.params.year;
+	
+	var filteredCountriesAndYear = global_marriages.filter( (c)=> {
+		return (c.country == country && c.year == year );
+	});
+	
+	if(filteredCountriesAndYear.length >=1){
+		res.send(filteredCountriesAndYear[0]);
+		//res.sendStatus(200,"OK");
+
+	}else{
+		res.sendStatus(404, "COUNTRY NOT FOUND")
+	}
+		
+	
+});  
+
+
+
+
+
+
+
+
+
+
+
+// FUNCION DEL POST /marriages
+app.post(BASE_API_URL+"/global_marriages",(req,res) =>{  // Coge el cuerpo de la peticion y los añade al array 
+	var newMarriage = req.body;
+	
+	if((newMarriage == "") || (newMarriage.country == null || newMarriage.year ==null)){
+		res.sendStatus(400,"BAD REQUEST");
+	} else {
+		global_marriages.push(newMarriage); 	
+		res.sendStatus(201,"CREATED");
+	}
+});
+
+
+//POST incorrecto
+app.post(BASE_API_URL + "/global_marriages/:country/:year", (req, res) => {
+    res.sendStatus(405, "Forbidden POST");
+});
+
+
+
+
+
+
+
+
+
+
+
+// FUNCION DEL PUT /marriages/XXXX
+
+app.put(BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+	
+	var country = req.params.country;
+	var year = req.params.year;
+    var updateMarriages = req.body;
+	
+	filteredMarriages = global_marriages.filter((c) => {
+		return (c.country == country && c.year ==year);
+	});
+
+	if(filteredMarriages.length == 0){
+		res.sendStatus(404);
+		return;
+	}
+	
+	if(!updateMarriages.country || !updateMarriages.year ||!updateMarriages.marriages || !updateMarriages.avg_wm
+	   || !updateMarriages.avg_m || updateMarriages.country != country){
+                res.sendStatus(400);
+		return;
+	}
+	
+	global_marriages = global_marriages.map((c) => {
+		if(c.country == updateMarriages.country){
+			return updateMarriages;
+		}else{
+			return c;
+		}
+		
+	});
+	res.sendStatus(200);
+});
+
+
+//PUT incorrecto
+app.put(BASE_API_URL + "/global_marriages/", (req, res) => {
+    res.sendStatus(405, "Forbidden PUT");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// FUNCION DEL DELETE /marriages/
+
+app.delete (BASE_API_URL+"/global_marriages", (req, res) =>{
+	global_marriages=[]
+//	return global_marriages;
+	res.sendStatus(200)
+	
+});  
+
+
+// FUNCION DEL DELETE /marriages/XXXX
+
+app.delete (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+	var country = req.params.country;
+	var year = req.params.year;
+
+	var filteredCountriesAndYear = global_marriages.filter( (c)=> {
+		return (c.country != country || c.year !=year);
+	});
+	
+	if(filteredCountriesAndYear.length < global_marriages.length){
+		global_marriages=filteredCountriesAndYear;
+		res.sendStatus(200)
+	}else{
+		res.sendStatus(404, "COUNTRY NOT FOUND")
+	}
+		
+	
+});  
+
+
+
+
+
+
+
+
+
 
 
 /*====================================================*/
