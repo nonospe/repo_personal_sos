@@ -353,16 +353,6 @@ app.put(BASE_API_URL + "/global_marriages/", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 // FUNCION DEL DELETE /marriages/
 
 app.delete (BASE_API_URL+"/global_marriages", (req, res) =>{
@@ -392,14 +382,6 @@ app.delete (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
 		
 	
 });  
-
-
-
-
-
-
-
-
 
 
 
