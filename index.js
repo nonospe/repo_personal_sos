@@ -178,33 +178,30 @@ app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 
 //6-e
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
-app.put(BASE_API_URL+"/global-suicides/:country", (req, res) =>{
-	
+app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 	var country = req.params.country;
-    var updateGlobalSuicides = req.body;
 	
-	var countryFilter = globalSuicides.filter((c) => {
-		return (c.country == country);
-	});
-
-	if(countryFilter.length == 0){
-		return res.sendStatus(404);
-		
+	var updatedSuicide = req.body;
+	
+	
+	if(country!=updatedSuicide.country){
+        res.sendStatus(400);
+    }else{
+        var countryFilter = divorces.filter((c) => {
+        return (c.country != country || c.year != year);
+        });
+		if(countryFilter.length == 0){
+		res.sendStatus(404,"DATA NOT FOUND");
+		return;
 	}
-	
-	if(!updateGlobalSuicides.country ||!updateGlobalSuicides.latitudeCoord|| !updateGlobalSuicides.lengthCoord != country){
-                
-		return res.sendStatus(400);
-	}
-	
-	globalSuicides = globalSuicides.map((c) => {
-		if(c.country == updateGlobalSuicides.country){
-			return updateGlobalSuicides;
+		else{ globalSuicides = globalSuicides.map((c) =>{
+			if(c.country == updatedSuicide.country){
+			return updatedSuicide;
 		}else{
 			return c;
 		}
-		
-	});
+		});}
+    }	
 	res.sendStatus(200);
 });
 
