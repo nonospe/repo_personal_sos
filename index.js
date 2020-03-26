@@ -178,7 +178,7 @@ app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 
 //6-e
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
-app.put(BASE_API_URL+"/evolution-of-cycling-routes/:country/", (req,res) =>{
+app.put(BASE_API_URL+"/global-suicides/:country", (req,res) =>{
 	
 	var params = req.params;
 	var country = params.country;	
