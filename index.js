@@ -183,24 +183,23 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req, res) =>{
 	var country = req.params.country;
     var updateGlobalSuicides = req.body;
 	
-	var filteredMarriages = global_marriages.filter((c) => {
-		return (c.country == country && c.year ==year);
+	var countryFilter = globalSuicides.filter((c) => {
+		return (c.country == country);
 	});
 
-	if(filteredMarriages.length == 0){
-		res.sendStatus(404);
-		return;
+	if(countryFilter.length == 0){
+		return res.sendStatus(404);
+		
 	}
 	
-	if(!updateMarriages.country || !updateMarriages.year ||!updateMarriages.marriages || !updateMarriages.avg_wm
-	   || !updateMarriages.avg_m || updateMarriages.country != country){
-                res.sendStatus(400);
-		return;
+	if(!updateGlobalSuicides.country ||!updateGlobalSuicides.latitudeCoord|| !updateGlobalSuicides.lengthCoord != country){
+                
+		return res.sendStatus(400);
 	}
 	
-	global_marriages = global_marriages.map((c) => {
-		if(c.country == updateMarriages.country){
-			return updateMarriages;
+	globalSuicides = globalSuicides.map((c) => {
+		if(c.country == updateGlobalSuicides.country){
+			return updateGlobalSuicides;
 		}else{
 			return c;
 		}
@@ -353,16 +352,6 @@ app.put(BASE_API_URL + "/global-marriages/", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
 // FUNCION DEL DELETE /marriages/
 
 app.delete (BASE_API_URL+"/global-marriages", (req, res) =>{
@@ -395,18 +384,152 @@ app.delete (BASE_API_URL+"/global-marriages/:country/:year", (req, res) =>{
 
 
 
-
-
-
-
-
-
-
-
 /*====================================================*/
 /*========= Juan Manuel Cortés Alonso =========*/
 /*====================================================*/
+var divorces = [
+	{ 
+		country: "Spain",
+		year: 2017,
+		divorce: 97960,
+		crude_rate: 2.1,
+		variation: 0
+		
+	},
+	{ 
+		country: "Germany",
+		year: 2017,
+		divorce: 153501,
+		crude_rate: 1.9,
+		variation: -0.1
+	}
+];
 
+// GET DIVORCES	
+
+app.get(BASE_API_URL+"/global-divorces", (req,res) =>{
+	res.send(JSON.stringify(divorces,null,2));
+	console.log("Data sent:"+JSON.stringify(divorces,null,2));
+});
+
+//GET globalDivorces  loadInitialData
+app.get(BASE_API_URL+"/global-divorces/loadInitialData",(req, res) => {
+	divorces = [
+		{ 
+		country: "Spain",
+		year: 2017,
+		divorce: 97960,
+		crude_rate: 2.1,
+		variation: 0
+		
+	},
+	{ 
+		country: "Germany",
+		year: 2017,
+		divorce: 153501,
+		crude_rate: 1.9,
+		variation: -0.1
+	}
+	];
+	res.send("Ok");
+});
+// POST DIVORCES
+
+app.post(BASE_API_URL+"/global-divorces",(req,res) =>{
+	
+	var newDivorce = req.body;
+	
+	if((newDivorce == "") || (newDivorce.country == null)){
+		res.sendStatus(400,"BAD REQUEST");
+	} else {
+		divorces.push(newDivorce); 	
+		res.sendStatus(201,"CREATED");
+	}
+});
+
+// DELETE DIVORCES
+app.delete(BASE_API_URL+"/global-divorces", (req,res)=>{
+	divorces = [];
+	res.sendStatus(200, "DELETED")
+} );
+
+// GET DIVORCES/XXX
+
+app.get(BASE_API_URL+"/global-divorces/:country", (req,res)=>{
+	
+	var country = req.params.country;
+	
+	var filteredDivorces = divorces.filter((d) => {
+		return (d.country == country);
+	});
+	
+	
+	if(filteredDivorces.length >= 1){
+		res.send(filteredDivorces[0]);
+	}else{
+		res.sendStatus(404,"CONTACT NOT FOUND");
+	}
+});
+
+// PUT Divorce/XXX
+app.put(BASE_API_URL+"/global-divorces/:country", (req,res)=>{
+	var country = req.params.country;
+	var year = req.params.year;
+	
+	var updatedDivorce = req.body;
+	
+	
+	if(country!=updatedDivorce.country){
+        res.sendStatus(400);
+    }else{
+        var countryFilter = divorces.filter((c) => {
+        return (c.country != country || c.year != year);
+        });
+		if(countryFilter.length == 0){
+		res.sendStatus(404,"DATA NOT FOUND");
+		return;
+	}
+		else{ divorces = divorces.map((c) =>{
+			if(c.country == updatedDivorce.country){
+			return updatedDivorce;
+		}else{
+			return c;
+		}
+		});}
+    }	
+	res.sendStatus(200);
+});
+// DELETE Divorce/XXX
+
+app.delete(BASE_API_URL+"/global-divorces/:country", (req,res)=>{
+	
+	var country = req.params.country;
+	
+	var filteredDivorces = divorces.filter((d) => {
+		return (d.country != country);
+	});
+	
+	
+	if(filteredDivorces.length < divorces.length){
+		divorces = filteredDivorces;
+		res.sendStatus(200);
+	}else{
+		res.sendStatus(404,"CONTACT NOT FOUND");
+	}
+	
+	
+});
+//6-f
+app.post(BASE_API_URL + "/global-divorces/:country", (req, res) => {
+	
+    res.sendStatus(405, "NOT ALLOWED(Post/:country)");
+});
+
+//6-g
+app.put(BASE_API_URL + "/global-divorces", (req, res) => {
+	
+    res.sendStatus(405, "NOT ALLOWED(Put/global-divorces)");
+});
 
 
 /*====================================================*/
