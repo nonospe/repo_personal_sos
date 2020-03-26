@@ -172,14 +172,37 @@ app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 		globalSuicides = countryFilter;
 		res.sendStatus(200, "OK(Country deleted)");
 	}else{
-		res.sendStatus(404,"Country NOT FOUND");
-	}
-	
-	
+		res.sendStatus(404,"NOT FOUND(Country)");
+	}	
 });
 
 //6-e
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
+app.put(BASE_API_URL+"/evolution-of-cycling-routes/:country/", (req,res) =>{
+	
+	var params = req.params;
+	var country = params.country;	
+	var year = params.year;
+	var lengthCoord = params.lengthCoord;
+	var latitudeCoord = params.latitudeCoord;
+	var men = params.men;
+	var women = params.women;
+	var avg = params.average;
+	
+	var body = req.body;
+	
+	if(country!=body.country){
+        res.sendStatus(400,"BAD REQUEST(Wrong Country)");
+    }else{
+        var countryFilter = globalSuicides.filter((c) => {
+        return (c.country != country || c.year != year);
+        });      
+        public_budget_stats = countryFilter;
+        public_budget_stats.push(data);
+        res.status(200).send("DATA UPDATED");
+    }	
+	
+});
 
 
 //6-f
