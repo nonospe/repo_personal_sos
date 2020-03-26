@@ -178,30 +178,35 @@ app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 
 //6-e
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
-app.put(BASE_API_URL+"/global-suicides/:country", (req,res) =>{
+app.put(BASE_API_URL+"/global-suicides/:country", (req, res) =>{
 	
-	var params = req.params;
-	var country = params.country;	
-	var year = params.year;
-	var lengthCoord = params.lengthCoord;
-	var latitudeCoord = params.latitudeCoord;
-	var men = params.men;
-	var women = params.women;
-	var avg = params.average;
+	var country = req.params.country;
+    var updateGlobalSuicides = req.body;
 	
-	var body = req.body;
+	var filteredMarriages = global_marriages.filter((c) => {
+		return (c.country == country && c.year ==year);
+	});
+
+	if(filteredMarriages.length == 0){
+		res.sendStatus(404);
+		return;
+	}
 	
-	if(country!=body.country){
-        res.sendStatus(400,"BAD REQUEST(Wrong Country)");
-    }else{
-        var countryFilter = globalSuicides.filter((c) => {
-        return (c.country != country || c.year != year);
-        });      
-        public_budget_stats = countryFilter;
-        public_budget_stats.push(data);
-        res.status(200).send("DATA UPDATED");
-    }	
+	if(!updateMarriages.country || !updateMarriages.year ||!updateMarriages.marriages || !updateMarriages.avg_wm
+	   || !updateMarriages.avg_m || updateMarriages.country != country){
+                res.sendStatus(400);
+		return;
+	}
 	
+	global_marriages = global_marriages.map((c) => {
+		if(c.country == updateMarriages.country){
+			return updateMarriages;
+		}else{
+			return c;
+		}
+		
+	});
+	res.sendStatus(200);
 });
 
 
@@ -263,14 +268,6 @@ app.get(BASE_API_URL + "/global_marriages/loadInitialData", (req, res) => {
 });
 
 
-
-
-
-
-
-
-
-
 // FUNCION DEL GET   /marriages/
 app.get(BASE_API_URL+"/global_marriages",(req,res) =>{         //Funcion para cuando nos piden un get. Devuelve todos los contactos 
 	res.send(JSON.stringify(global_marriages,null,2))
@@ -297,16 +294,6 @@ app.get (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
 	
 });  
 
-
-
-
-
-
-
-
-
-
-
 // FUNCION DEL POST /marriages
 app.post(BASE_API_URL+"/global_marriages",(req,res) =>{  // Coge el cuerpo de la peticion y los añade al array 
 	var newMarriage = req.body;
@@ -324,16 +311,6 @@ app.post(BASE_API_URL+"/global_marriages",(req,res) =>{  // Coge el cuerpo de la
 app.post(BASE_API_URL + "/global_marriages/:country/:year", (req, res) => {
     res.sendStatus(405, "Forbidden POST");
 });
-
-
-
-
-
-
-
-
-
-
 
 // FUNCION DEL PUT /marriages/XXXX
 
