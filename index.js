@@ -255,7 +255,7 @@ var global_marriages = [
 
 //LOADINITIALDATA
 
-app.get(BASE_API_URL + "/global_marriages/loadInitialData", (req, res) => {
+app.get(BASE_API_URL + "/global-marriages/loadInitialData", (req, res) => {
 	var global_marriages = [
 		{"country": "Italy","year": 2018,"marriages": "195,778","avg_wm": 32.4,"avg_m": 35.2},
 		{"country": "Belgium", "year": 2017,   "marriages": "44,329",   "avg_wm": 31.2,   "avg_m": 33.5 },
@@ -269,13 +269,13 @@ app.get(BASE_API_URL + "/global_marriages/loadInitialData", (req, res) => {
 
 
 // FUNCION DEL GET   /marriages/
-app.get(BASE_API_URL+"/global_marriages",(req,res) =>{         //Funcion para cuando nos piden un get. Devuelve todos los contactos 
+app.get(BASE_API_URL+"/global-marriages",(req,res) =>{         //Funcion para cuando nos piden un get. Devuelve todos los contactos 
 	res.send(JSON.stringify(global_marriages,null,2))
 });
 
 // FUNCION DEL GET /marriages/XXXXX
 
-app.get (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+app.get (BASE_API_URL+"/global-marriages/:country/:year", (req, res) =>{
 	var country = req.params.country;
 	var year = req.params.year;
 	
@@ -295,7 +295,7 @@ app.get (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
 });  
 
 // FUNCION DEL POST /marriages
-app.post(BASE_API_URL+"/global_marriages",(req,res) =>{  // Coge el cuerpo de la peticion y los añade al array 
+app.post(BASE_API_URL+"/global-marriages",(req,res) =>{  // Coge el cuerpo de la peticion y los añade al array 
 	var newMarriage = req.body;
 	
 	if((newMarriage == "") || (newMarriage.country == null || newMarriage.year ==null)){
@@ -308,13 +308,13 @@ app.post(BASE_API_URL+"/global_marriages",(req,res) =>{  // Coge el cuerpo de la
 
 
 //POST incorrecto
-app.post(BASE_API_URL + "/global_marriages/:country/:year", (req, res) => {
+app.post(BASE_API_URL + "/global-marriages/:country/:year", (req, res) => {
     res.sendStatus(405, "Forbidden POST");
 });
 
 // FUNCION DEL PUT /marriages/XXXX
 
-app.put(BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+app.put(BASE_API_URL+"/global-marriages/:country/:year", (req, res) =>{
 	
 	var country = req.params.country;
 	var year = req.params.year;
@@ -348,7 +348,7 @@ app.put(BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
 
 
 //PUT incorrecto
-app.put(BASE_API_URL + "/global_marriages/", (req, res) => {
+app.put(BASE_API_URL + "/global-marriages/", (req, res) => {
     res.sendStatus(405, "Forbidden PUT");
 });
 
@@ -365,7 +365,7 @@ app.put(BASE_API_URL + "/global_marriages/", (req, res) => {
 
 // FUNCION DEL DELETE /marriages/
 
-app.delete (BASE_API_URL+"/global_marriages", (req, res) =>{
+app.delete (BASE_API_URL+"/global-marriages", (req, res) =>{
 	global_marriages=[]
 //	return global_marriages;
 	res.sendStatus(200)
@@ -375,7 +375,7 @@ app.delete (BASE_API_URL+"/global_marriages", (req, res) =>{
 
 // FUNCION DEL DELETE /marriages/XXXX
 
-app.delete (BASE_API_URL+"/global_marriages/:country/:year", (req, res) =>{
+app.delete (BASE_API_URL+"/global-marriages/:country/:year", (req, res) =>{
 	var country = req.params.country;
 	var year = req.params.year;
 
