@@ -183,24 +183,23 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req, res) =>{
 	var country = req.params.country;
     var updateGlobalSuicides = req.body;
 	
-	var filteredMarriages = global_marriages.filter((c) => {
-		return (c.country == country && c.year ==year);
+	var countryFilter = globalSuicides.filter((c) => {
+		return (c.country == country);
 	});
 
-	if(filteredMarriages.length == 0){
-		res.sendStatus(404);
-		return;
+	if(countryFilter.length == 0){
+		return res.sendStatus(404);
+		
 	}
 	
-	if(!updateMarriages.country || !updateMarriages.year ||!updateMarriages.marriages || !updateMarriages.avg_wm
-	   || !updateMarriages.avg_m || updateMarriages.country != country){
-                res.sendStatus(400);
-		return;
+	if(!updateGlobalSuicides.country ||!updateGlobalSuicides.latitudeCoord|| !updateGlobalSuicides.lengthCoord != country){
+                
+		return res.sendStatus(400);
 	}
 	
-	global_marriages = global_marriages.map((c) => {
-		if(c.country == updateMarriages.country){
-			return updateMarriages;
+	globalSuicides = globalSuicides.map((c) => {
+		if(c.country == updateGlobalSuicides.country){
+			return updateGlobalSuicides;
 		}else{
 			return c;
 		}
