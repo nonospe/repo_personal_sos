@@ -429,6 +429,7 @@ app.get(BASE_API_URL+"/global-divorces/loadInitialData",(req, res) => {
 	}
 	];
 	res.send("Ok");
+	res.sendStatus(200);
 });
 // POST DIVORCES
 
