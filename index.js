@@ -124,7 +124,7 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 
 
 //6-b
-//POST globalSuicides crea un nuevo recurso
+//POST globalSuicides crea un nuevo recurso FUNCIONA
 app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	
 	var newGlobalSuicides = req.body;
@@ -139,51 +139,66 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 
 
 //6-c
-//GET globalSuicides  /api/v1/global-suicides/xxx devuelve ese recurso
+//GET globalSuicides  /api/v1/global-suicides/xxx devuelve ese recurso FUNCIONA
 app.get(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
-	console.log("ENTRA.");
+	//console.log("ENTRA.");
 	var country = req.params.country;
 	
 	var countryFilter = globalSuicides.filter((c) => {
 		return (c.country == country);
 	});
 	
-	
 	if(countryFilter.length >= 1){
 		res.send(countryFilter[0]);
 		res.sendStatus(200,"OK");
-		console.log("LO HA ENCONTRADO");
+		//console.log("LO HA ENCONTRADO");
 	}else{
 		res.sendStatus(404,"COUNTRY NOT FOUND");
-		console.log("NO HAY");
+		//console.log("NO HAY");
 	}
 });
 
 //6-d
-//DELETE globalSuicides  /api/v1/global-suicides/xxx borra ese recurso
-
+//DELETE globalSuicides  /api/v1/global-suicides/xxx borra ese recurso //FUNCIONA
+app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
+	
+	var country = req.params.country;
+	
+	var countryFilter = globalSuicides.filter((c) => {
+		return (c.country != country);
+	});
+	
+	if(countryFilter.length < globalSuicides.length){
+		globalSuicides = countryFilter;
+		res.sendStatus(200, "OK(Country deleted)");
+	}else{
+		res.sendStatus(404,"Country NOT FOUND");
+	}
+	
+	
+});
 
 //6-e
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
 
 
 //6-f
-//POST globalSuicides  /api/v1/global-suicides/xxx debe dar un error de método no permitido.
-app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {//REVISAR FORMATO DE URL
+//POST globalSuicides  /api/v1/global-suicides/xxx debe dar un error de método no permitido. //FUNCIONA
+app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {
 	
     res.sendStatus(405, "NOT ALLOWED(Post/:country)");
 });
 
 
 //6-g
-//PUT globalSuicides  /api/v1/global-suicides debe dar un error de método no permitido.
+//PUT globalSuicides  /api/v1/global-suicides debe dar un error de método no permitido. //FUNCIONA
 app.put(BASE_API_URL + "/global-suicides", (req, res) => {
 	
     res.sendStatus(405, "NOT ALLOWED(Put)");
 });
 
 //6-h
-//DELETE globalSuicides  /api/v1/global-suicides borra todos los recursos
+//DELETE globalSuicides  /api/v1/global-suicides borra todos los recursos //FUNCIONA
 app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
 	
 	globalSuicides = [];
