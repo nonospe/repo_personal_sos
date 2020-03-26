@@ -5,7 +5,7 @@ var app = express();
 
 var port = process.env.PORT || 80;
 
-app.use("/", express.static("./public"));
+//app.use("/", express.static("./public"));
 
 app.use(bodyParser.json());
 
@@ -119,6 +119,7 @@ app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
 //GET globalSuicides  /api/v1/global-suicides FUNCIONA
 app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	res.send(JSON.stringify(globalSuicides,null,2));
+	res.sendStatus(200,"OK");
 });
 
 
@@ -128,10 +129,10 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	
 	var newGlobalSuicides = req.body;
 	
-	if((newGlobalSuicides == "") || (newGlobalSuicides.province == null)){
+	if((newGlobalSuicides == "") || (newGlobalSuicides == null)){
 		res.sendStatus(400,"BAD REQUEST(Resource empty or null)");
 	} else {
-		tourism.push(newTourism); 	
+		globalSuicides.push(newGlobalSuicides); 	
 		res.sendStatus(201,"CREATED");
 	}
 });
