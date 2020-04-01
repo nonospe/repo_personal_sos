@@ -30,7 +30,7 @@
 <li><a href="https://sos1920-10.herokuapp.com/api/v1/global-divorces" rel="nofollow">https://sos1920-10.herokuapp.com/api/v1/global-divorces</a> (developed by <a href="https://github.com/juanmacortes9">Juan Manuel Cortés Alonso</a>)</li>
 </ul>
 
-<p><strong>DOCUMENTACION POSTMAN</strong>:</p>
+<p><strong>POSTMAN DOC</strong>:</p>
 <ul>
 <li><a href="https://documenter.getpostman.com/view/10651736/SzYUaMVS" rel="nofollow">https://documenter.getpostman.com/view/10651736/SzYUaMVS</a> (developed by <a href="https://github.com/nonospe">Antonio Jose Jimenez Segovia</a>)</li>
 <li><a href="https://documenter.getpostman.com/view/10695115/SzYUaMLT" rel="nofollow">https://documenter.getpostman.com/view/10695115/SzYUaMLT</a> (developed by <a href="https://github.com/rivadeneyraj">Jesús Vázquez Rivadeneyra</a>)</li>
