@@ -1,4 +1,4 @@
-function init(app,dglobalSuicidesDbb){
+function init(app,globalSuicidesDb){
 	
 	const BASE_API_URL = "/api/v1";
 	
@@ -52,7 +52,7 @@ function init(app,dglobalSuicidesDbb){
 		average: 24.3
 	}	
 ];
-	
+/*	
 	// 5-b
 //GET globalSuicides  /api/v1/global-suicides/loadInitialData FUNCIONA
 app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
@@ -220,6 +220,42 @@ app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
 	
 	res.sendStatus(200,"OK(Deleted)");
 });
+*/	
+//=============================================================
+//=============================L08==============================
+//=============================================================
+	
+//L08
+app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
+	
+	console.log("New GET .../loadInitialData");
+	
+	globalSuicidesDb.insert(globalSuicides);
+	res.sendStatus(200,"OK");	
+	
+	console.log("Initial global-suicides Loaded:"+JSON.stringify(globalSuicides,null,2));
+});
+
+app.get(BASE_API_URL+"/global-suicides",(req, res) => {
+	console.log("New GET_0.1 global-suicides");
+	
+	globalSuicidesDb.find({}, (err, suicides) => {
+		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
+		suicides.forEach((c) => {
+			delete c._id;
+		});
+		
+		console.log("New GET_0.2  suicides");
+		
+		res.send(JSON.stringify(suicides,null,2));
+		
+		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+	});
+	
+});
+	
+	console.log("Modulo cargado. greetingAPI");
+	
 	
 	
 }

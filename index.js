@@ -4,14 +4,16 @@ const dataStore = require("nedb");
 const path = require("path");
 const globalSuicidesAPI = require(path.join(__dirname,"global-suicides_API"));
 
-const app = express();
-
 var port = process.env.PORT || 80;
-const dbGSuicides = path.join(__dirname,"global-suicides_API/global-suicides.db");
+const dbGSuicides = path.join(__dirname,"global-suicides_API/suicides.db");
+
+const app = express();
+app.use(bodyParser.json());
+
 
 app.use("/", express.static("./public"));
 
-app.use(bodyParser.json());
+
 
 const globalSuicidesDb = new dataStore({							//objeto
 		filename: dbGSuicides,
