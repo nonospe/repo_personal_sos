@@ -1,4 +1,4 @@
-function init(app,globalSuicidesDb){
+module.exports = function init(app,globalSuicidesDb){
 	
 	const BASE_API_URL = "/api/v1";
 	
@@ -260,6 +260,89 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	
 	console.log("Modulo cargado. greetingAPI");
 	
+	
+app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
+	console.log("GET COUNTRY");
+	
+	var country = req.params.country;
+	
+	globalSuicidesDb.find({country}, (err, suicides) => {
+		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
+		suicides.forEach((c) => {
+			delete c._id;
+		});
+		
+		console.log("New GET_0.2  suicides");
+		
+		res.send(JSON.stringify(suicides,null,2));
+		
+		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+	});
+	
+});
+	
+app.get(BASE_API_URL+"/global-suicides/:country/:year",(req, res) => {
+	console.log("GET YEAR");
+	
+	var country = req.params.country;
+	var year = parseInt(req.params.year);
+	
+	globalSuicidesDb.find({country, year}, (err, suicides) => {
+		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
+		suicides.forEach((c) => {
+			delete c._id;
+		});
+		
+		console.log("New GET_0.2  suicides");
+		
+		res.send(JSON.stringify(suicides,null,2));
+		
+		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+	});
+	
+});
+
+app.delete(BASE_API_URL+"/global-suicides",(req, res) => {
+	console.log("Delete Global Suicides.");
+	
+	globalSuicidesDb.remove({}, { multi: true }, function (err, numRemoved) {
+});
+	res.sendStatus(200,"OK");
+});
+	
+app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
+	console.log("Post Global Suicides.")
+	
+	var newGlobalSuicides = req.body;
+	var country = newGlobalSuicides.country;
+	
+	console.log(newGlobalSuicides);
+	
+	if((newGlobalSuicides.country == "") || (newGlobalSuicides == null)){
+		Console.log("ERROR. Pais en blanco o valor nulo.")
+	   res.sendStatus(400,"BAD REQUEST(Resource empty or null)");
+	   }
+	
+	globalSuicidesDb.find({country}, (err, suicides) => {
+		console.log("ENTRA");
+		/*suicides.forEach((c) => {
+			console.log(c);
+		});
+		console.log(suicides);*/
+		if(suicides.length >= 1){
+			
+			console.log("ERROR. El pais ya existe");
+			res.sendStatus(409,"El pais ya existe");
+			
+		}else{
+			
+			globalSuicidesDb.insert(newGlobalSuicides);
+			console.log("Recurso Creado.");
+			res.sendStatus(201,"CREATED");
+		}
+	});
+});	
+
 //GET globalSuicides  /api/v1/global-suicides/xxx devuelve ese recurso FUNCIONA
 /*app.get(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 	console.log("Solicitud de busqueda por pais.");
@@ -327,5 +410,3 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	
 	
 }
-
-module.exports = init;

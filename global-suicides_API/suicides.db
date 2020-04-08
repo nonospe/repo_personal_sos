@@ -1,5 +1,18 @@
-{"country":"South Korea","lengthCoord":126.9784012,"latitudeCoord":37.5660019,"year":2012,"men":38.2,"women":18,"average":28.1,"_id":"3WrxnjJHvUUoD041"}
-{"country":"Serbia","lengthCoord":20.4651299,"latitudeCoord":44.8040085,"year":2002,"men":28.8,"women":10.4,"average":19.3,"_id":"GfpwgCefcFvYZAlU"}
-{"country":"Croatia","lengthCoord":15.977979,"latitudeCoord":45.8144417,"year":2003,"men":31.4,"women":8.4,"average":19.5,"_id":"ovrZQKx1QG7QXd2m"}
-{"country":"Latvia","lengthCoord":24.1058903,"latitudeCoord":56.9459991,"year":2004,"men":42.9,"women":8.5,"average":24.3,"_id":"wK8jnF9lapom9llC"}
-{"country":"Belgium","lengthCoord":4.3487802,"latitudeCoord":50.8504486,"year":2009,"men":28.7,"women":10.9,"average":18.9,"_id":"xWv7ju9Y9iE3suB2"}
+{"country":"Croatia","lengthCoord":15.977979,"latitudeCoord":45.8144417,"year":2003,"men":31.4,"women":8.4,"average":19.5,"_id":"KekFFKSkcTbqbxbo"}
+{"country":"Latvia","lengthCoord":24.1058903,"latitudeCoord":56.9459991,"year":2004,"men":42.9,"women":8.5,"average":24.3,"_id":"UKCaSAAT8TMnOcQS"}
+{"country":"Belgium","lengthCoord":4.3487802,"latitudeCoord":50.8504486,"year":2009,"men":28.7,"women":10.9,"average":18.9,"_id":"Uglkmjy7l3POz6x1"}
+{"country":"Serbia","lengthCoord":20.4651299,"latitudeCoord":44.8040085,"year":2002,"men":28.8,"women":10.4,"average":19.3,"_id":"UhbAE9UbKWAYwQmo"}
+{"country":"USA","lengthCoord":-95.7128906,"latitudeCoord":37.0902405,"year":2009,"men":19.2,"women":5.5,"average":12,"_id":"pRuNaHCxqMf4aJLt"}
+{"country":"South Korea","lengthCoord":126.9784012,"latitudeCoord":37.5660019,"year":2012,"men":38.2,"women":18,"average":28.1,"_id":"s0DLRRpxeQPTH3gs"}
+{"$$deleted":true,"_id":"KekFFKSkcTbqbxbo"}
+{"$$deleted":true,"_id":"UKCaSAAT8TMnOcQS"}
+{"$$deleted":true,"_id":"Uglkmjy7l3POz6x1"}
+{"$$deleted":true,"_id":"UhbAE9UbKWAYwQmo"}
+{"$$deleted":true,"_id":"pRuNaHCxqMf4aJLt"}
+{"$$deleted":true,"_id":"s0DLRRpxeQPTH3gs"}
+{"country":"Croatia","lengthCoord":15.977979,"latitudeCoord":45.8144417,"year":2003,"men":31.4,"women":8.4,"average":19.5,"_id":"AnSodDP392Oob5aD"}
+{"country":"Serbia","lengthCoord":20.4651299,"latitudeCoord":44.8040085,"year":2002,"men":28.8,"women":10.4,"average":19.3,"_id":"DVDyKgAniSIVYilC"}
+{"country":"Belgium","lengthCoord":4.3487802,"latitudeCoord":50.8504486,"year":2009,"men":28.7,"women":10.9,"average":18.9,"_id":"1ewdXMFZjjsQiKuM"}
+{"country":"South Korea","lengthCoord":126.9784012,"latitudeCoord":37.5660019,"year":2012,"men":38.2,"women":18,"average":28.1,"_id":"ubeSTNdQbbXwB1bT"}
+{"country":"Latvia","lengthCoord":24.1058903,"latitudeCoord":56.9459991,"year":2004,"men":42.9,"women":8.5,"average":24.3,"_id":"YgH8KEIoCFFl9Jlj"}
+{"country":"USA","lengthCoord":-95.7128906,"latitudeCoord":37.0902405,"year":2009,"men":19.2,"women":5.5,"average":12,"_id":"GoUHWfWSuSAb3AyL"}
