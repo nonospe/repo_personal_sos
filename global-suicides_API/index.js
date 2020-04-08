@@ -229,7 +229,11 @@ app.delete(BASE_API_URL + "/global-suicides", (req,res)=>{
 app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
 	
 	console.log("New GET .../loadInitialData");
-	
+	console.log("Deleting all data...");
+	globalSuicidesDb.remove({}, { multi: true }, function (err, numRemoved) {
+});
+	console.log("Old data deleted...");
+	console.log("Creating Initial Data...");
 	globalSuicidesDb.insert(globalSuicides);
 	res.sendStatus(200,"OK");	
 	
@@ -256,6 +260,70 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	
 	console.log("Modulo cargado. greetingAPI");
 	
+//GET globalSuicides  /api/v1/global-suicides/xxx devuelve ese recurso FUNCIONA
+/*app.get(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
+	console.log("Solicitud de busqueda por pais.");
+	var country = req.params.country;
+	
+	var countryFilter = globalSuicides.filter((c) => {
+		return (c.country == country);
+	});
+	
+	if(countryFilter.length >= 1){
+		console.log("Ha encontrado el pais: "+country);
+		return res.send(countryFilter[0]);
+		res.sendStatus(200);
+		
+	}else{
+		console.log("No existe el pais: "+country);
+		res.sendStatus(404);
+		
+	}
+});	*/
+	
+/*	app.get(BASE_API_URL+"/global-suicides/:recurso", (req,res)=>{
+	console.log("Solicitud de busqueda por recurso.");
+	
+	var country = req.params.country;
+	var lengthCoord = parseFloat(req.params.lengthCoord);
+	var latitudeCoord = parseFloat(req.params.latitudeCoord);
+	var year = parseInt(req.params.year);
+	var men = parseFloat(req.params.men);
+	var women = parseFloat(req.params.women);
+	var average = parseFloat(req.params.average);
+	
+	var requestFilter = globalSuicides.filter((c) => {
+		console.log("EMTRA");
+		if(c.country === country){
+			console.log("PAIS");
+			return (c.country == country);
+		}else if(c.lengthCoord === lengthCoord){
+			console.log("LENGT");
+			return (c.lengthCoord == lengthCoord);
+		}else if(c.latitudeCoord === latitudeCoord){
+			console.log("LATITUD");
+			return (c.latitudeCoord == latitudeCoord);
+		}else if(c.year === year){
+			console.log("AÑO");
+			return (c.year == year);		  
+		}else if(c.men === men){
+			console.log("HOMBRE");
+			return (c.men == men);
+		}
+		
+	});
+	
+	if(requestFilter.length >= 1){
+		console.log("Ha encontrado la coordenada: "+lengthCoord);
+		return res.send(requestFilter[0]);
+		res.sendStatus(200);
+		
+	}else{
+		console.log("No existe la coordenada: "+lengthCoord);
+		res.sendStatus(404);
+		
+	}
+});*/
 	
 	
 }
