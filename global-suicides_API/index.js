@@ -133,17 +133,8 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	
 });	
 	
-	
-	
-	
-	
-	
-	
-
-	
-
 app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
-	console.log("GET COUNTRY");
+	console.log("GET COUNTRY_f03");
 	
 	var country = req.params.country;
 	
@@ -152,12 +143,17 @@ app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 		suicides.forEach((c) => {
 			delete c._id;
 		});
-		
-		console.log("New GET_0.2  suicides");
+		if(suicides.length>=1){
+			console.log("El pais existe. Enviado");
 		
 		res.send(JSON.stringify(suicides,null,2));
-		
 		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+			
+		}else{
+			console.log("ERROR. No existe ese pais");
+			res.sendStatus(404,"ERROR. No existe ese pais.");
+		}
+		
 	});
 	
 });
@@ -226,9 +222,17 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	});
 });	
 
+app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {
+	console.log("POST F03 PROHIBIDO");
 	
+    res.sendStatus(405, "NOT ALLOWED(Post/:country)");
+});
 	
+app.put(BASE_API_URL + "/global-suicides", (req, res) => {
+	console.log("PUT F03 PROHIBIDO");
 	
+    res.sendStatus(405, "NOT ALLOWED(Put)");
+});
 	
 	
 }
