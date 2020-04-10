@@ -123,16 +123,21 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 		suicides.forEach((c) => {
 			delete c._id;
 		});
-		
-		console.log("New GET_0.2  suicides");
+		if(suicides.length>=1){
+			console.log("Recurso encontrado");
 		
 		res.send(JSON.stringify(suicides,null,2));
-		
 		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+			
+		}else{
+			console.log("ERROR. No se encuentra el recurso.");
+			res.sendStatus(404, "El recurso no existe.");
+		}
+		
 	});
 	
 });	
-	
+/*	
 app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 	console.log("GET COUNTRY_f03");
 	
@@ -156,8 +161,8 @@ app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 		
 	});
 	
-});
-	
+});*/
+/*	
 app.get(BASE_API_URL+"/global-suicides/:country/:year",(req, res) => {
 	console.log("GET YEAR");
 	
@@ -177,7 +182,7 @@ app.get(BASE_API_URL+"/global-suicides/:country/:year",(req, res) => {
 		console.log("Data sent: "+JSON.stringify(suicides,null,2));
 	});
 	
-});
+});*/
 
 //DELETE GLOBAL SUICIDES	
 app.delete(BASE_API_URL+"/global-suicides",(req, res) => {
@@ -192,23 +197,33 @@ app.delete(BASE_API_URL+"/global-suicides",(req, res) => {
 app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	console.log("Post Global Suicides.")
 	
+	if(req.body == null){
+		res.sendStatus(400,"probando null");
+	}
+	
 	var newGlobalSuicides = req.body;
 	var country = newGlobalSuicides.country;
+	var lengthCoord = parseFloat(newGlobalSuicides.lengthCoord);
+	var latitudeCoord = parseFloat(newGlobalSuicides.latitudeCoord);
+	var year = parseInt(newGlobalSuicides.year);
+	var men = parseFloat(newGlobalSuicides.men);
+	var women = parseFloat(newGlobalSuicides.women);
+	var average = parseFloat(newGlobalSuicides.average);
 	
 	console.log(newGlobalSuicides);
+	console.log((newGlobalSuicides).length);
 	
-	if((newGlobalSuicides.country == "") || (newGlobalSuicides == null)){
-		Console.log("ERROR. Pais en blanco o valor nulo.")
-	   res.sendStatus(400,"BAD REQUEST(Resource empty or null)");
-	   }
-	
-	globalSuicidesDb.find({country}, (err, suicides) => {
-		console.log("ENTRA");
+	if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
+		console.log("ERROR. Datos de pais incorrectos.")
+	   res.sendStatus(400,"BAD REQUEST.null.");
+	   }else{
+		   globalSuicidesDb.find({country}, (err, suicides) => {
+		console.log("ENTRA en find por pais.post usa");
 		/*suicides.forEach((c) => {
 			console.log(c);
 		});
 		console.log(suicides);*/
-		if(suicides.length >= 1){
+		   if(suicides.length >= 1){
 			
 			console.log("ERROR. El pais ya existe");
 			res.sendStatus(409,"El pais ya existe");
@@ -219,15 +234,18 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 			console.log("Recurso Creado.");
 			res.sendStatus(201,"CREATED");
 		}
-	});
+	   }
+	)};
 });	
-
+	
+//MODIFICAR PARA D01
 app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {
 	console.log("POST F03 PROHIBIDO");
 	
     res.sendStatus(405, "NOT ALLOWED(Post/:country)");
 });
-	
+
+//VALIDO PARA D01
 app.put(BASE_API_URL + "/global-suicides", (req, res) => {
 	console.log("PUT F03 PROHIBIDO");
 	
