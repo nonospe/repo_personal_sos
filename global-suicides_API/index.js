@@ -197,10 +197,6 @@ app.delete(BASE_API_URL+"/global-suicides",(req, res) => {
 app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	console.log("Post Global Suicides.")
 	
-	if(req.body == null){
-		res.sendStatus(400,"probando null");
-	}
-	
 	var newGlobalSuicides = req.body;
 	var country = newGlobalSuicides.country;
 	var lengthCoord = parseFloat(newGlobalSuicides.lengthCoord);
@@ -211,18 +207,35 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	var average = parseFloat(newGlobalSuicides.average);
 	
 	console.log(newGlobalSuicides);
-	console.log((newGlobalSuicides).length);
 	
-	if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
-		console.log("ERROR. Datos de pais incorrectos.")
-	   res.sendStatus(400,"BAD REQUEST.null.");
-	   }else{
-		   globalSuicidesDb.find({country}, (err, suicides) => {
+	//probando el 405
+	if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || (!average) || (Object.keys(newGlobalSuicides).length != 7)){
+		if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
+			console.log("ERROR 400. Datos de pais incorrectos.")
+	   		res.sendStatus(400,"BAD REQUEST.null.");
+		}else{
+			console.log("ERROR 405. Estructura o comando no permitido.");
+			console.log("pais: "+ !country);
+			console.log("lc: "+ !lengthCoord);
+			console.log("latc: "+ !latitudeCoord);
+			console.log("año: "+ !year);
+			console.log("hombre: "+ !men);
+			console.log("mujer: "+ !women);
+			console.log("media: "+ !average);
+			console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
+	   		res.sendStatus(405,"NO PERMITIDO");
+		}
+		
+	}else{
+		
+		globalSuicidesDb.find({country}, (err, suicides) => {
 		console.log("ENTRA en find por pais.post usa");
+			
 		/*suicides.forEach((c) => {
 			console.log(c);
 		});
 		console.log(suicides);*/
+			
 		   if(suicides.length >= 1){
 			
 			console.log("ERROR. El pais ya existe");
@@ -235,17 +248,18 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 			res.sendStatus(201,"CREATED");
 		}
 	   }
-	)};
+	);
+	}
 });	
-	
-//MODIFICAR PARA D01
+
+//VALIDADO
 app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {
 	console.log("POST F03 PROHIBIDO");
 	
     res.sendStatus(405, "NOT ALLOWED(Post/:country)");
 });
 
-//VALIDO PARA D01
+//VALIDADO
 app.put(BASE_API_URL + "/global-suicides", (req, res) => {
 	console.log("PUT F03 PROHIBIDO");
 	
