@@ -220,10 +220,14 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	console.log(newGlobalSuicides);
 	
 	//probando el 405
-	if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || (!average) || (Object.keys(newGlobalSuicides).length != 7)){
+	if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || 
+	   (!average) || (Object.keys(newGlobalSuicides).length != 7)){
+		
 		if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
+			
 			console.log("ERROR 400. Datos de pais incorrectos.")
 	   		res.sendStatus(400,"BAD REQUEST.null.");
+			
 		}else{
 			console.log("ERROR 405. Estructura o comando no permitido.");
 			console.log("pais: "+ !country);
