@@ -273,14 +273,12 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 //VALIDADO
 app.post(BASE_API_URL + "/global-suicides/:country", (req, res) => {
 	console.log("POST F03 PROHIBIDO");
-	
     res.sendStatus(405, "NOT ALLOWED(Post/:country)");
 });
 
 //VALIDADO
 app.put(BASE_API_URL + "/global-suicides", (req, res) => {
 	console.log("PUT F03 PROHIBIDO");
-	
     res.sendStatus(405, "NOT ALLOWED(Put)");
 });
 //DELETE F03 MODIFICAR PATA D01
@@ -300,7 +298,6 @@ var country = req.params.country;
 			console.log("ERROR. No existe ese pais");
 			res.sendStatus(404,"ERROR. No existe ese pais.");
 		}
-		
 	});	
 });
 	
@@ -326,7 +323,6 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 			console.log("recurso NO EXISTE.");
 			res.sendStatus(404,"ERROR. No existe ese pais.");
 		}
-		
 	});
 });
 
