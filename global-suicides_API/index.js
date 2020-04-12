@@ -221,7 +221,7 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	
 	//probando el 405
 	if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || 
-	   (!average) || (Object.keys(newGlobalSuicides).length != 7)){
+	   (!average) || (Object.keys(newGlobalSuicides).length != 7) || newGlobalSuicides == {}){
 		
 		if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
 			
@@ -230,13 +230,13 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 			
 		}else{
 			console.log("ERROR 405. Estructura o comando no permitido.");
-			console.log("pais: "+ !country);
-			console.log("lc: "+ !lengthCoord);
-			console.log("latc: "+ !latitudeCoord);
-			console.log("año: "+ !year);
-			console.log("hombre: "+ !men);
-			console.log("mujer: "+ !women);
-			console.log("media: "+ !average);
+			console.log("pais: "+ !country+" "+country);
+			console.log("lc: "+ !lengthCoord+" "+lengthCoord);
+			console.log("latc: "+ !latitudeCoord+" "+latitudeCoord);
+			console.log("año: "+ !year+" "+year);
+			console.log("hombre: "+ !men+" "+men);
+			console.log("mujer: "+ !women+" "+women);
+			console.log("media: "+ !average+" "+average);
 			console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
 	   		res.sendStatus(405,"NO PERMITIDO");
 		}
@@ -259,6 +259,9 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 		}else{
 			
 			globalSuicidesDb.insert(newGlobalSuicides);
+			suicides.forEach((c) => {
+			delete c._id;
+			});
 			console.log("Recurso Creado.");
 			res.sendStatus(201,"CREATED");
 		}
@@ -301,6 +304,31 @@ var country = req.params.country;
 	});	
 });
 	
+	
+//PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
+app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
+	
+	var country = req.params.country;
+	var body = req.body;
+	
+	globalSuicidesDb.find({country}, (err, suicides) => {
+		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
+		suicides.forEach((c) => {
+			delete c._id;
+		});
+		if(suicides.length >= 1){
+			console.log("Pais encontrado. Actualizando recurso.");
+			globalSuicidesDb.update({country: country}, body, (error, numRemoved) => {
+				console.log("Recurso actualizado.");
+				res.sendStatus(200, "OK");
+			})
+		}else{
+			console.log("recurso NO EXISTE.");
+			res.sendStatus(404,"ERROR. No existe ese pais.");
+		}
+		
+	});
+});
 
 	
 }
