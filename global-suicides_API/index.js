@@ -57,6 +57,25 @@ module.exports = function init(app,globalSuicidesDb){
 //======================ZONA TEST==============================
 //=============================================================
 
+	/*
+//GET GLOBAL SUICIDES
+app.get(BASE_API_URL+"/global-suicides",(req, res) => {
+	console.log("New GET_0.1 global-suicides");
+	
+	globalSuicidesDb.find({}, (err, suicides) => {
+		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
+		suicides.forEach((c) => {
+			delete c._id;
+		});
+		
+		console.log("New GET_0.2  suicides");
+		
+		res.send(JSON.stringify(suicides,null,2));
+		
+		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+	});
+	
+});*/
 	
 	
 
@@ -80,29 +99,11 @@ app.get(BASE_API_URL+"/global-suicides/loadInitialData",(req, res) => {
 	
 	console.log("Initial global-suicides Loaded:"+JSON.stringify(globalSuicides,null,2));
 });
-/*
-//GET GLOBAL SUICIDES
-app.get(BASE_API_URL+"/global-suicides",(req, res) => {
-	console.log("New GET_0.1 global-suicides");
-	
-	globalSuicidesDb.find({}, (err, suicides) => {
-		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
-		suicides.forEach((c) => {
-			delete c._id;
-		});
-		
-		console.log("New GET_0.2  suicides");
-		
-		res.send(JSON.stringify(suicides,null,2));
-		
-		console.log("Data sent: "+JSON.stringify(suicides,null,2));
-	});
-	
-});*/
+
 	
 console.log("Modulo cargado. greetingAPI");
 	
-	
+//GET GLOBAL SUICIDES	+ BUSQUEDAS
 app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	console.log("GET GLOBAL SUICIDES");
 	
@@ -125,10 +126,13 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 		});
 		if(suicides.length>=1){
 			console.log("Recurso encontrado");
-		
-		res.send(JSON.stringify(suicides,null,2));
+			if(suicides.length == 1){
+				res.send(JSON.stringify(suicides[0],null,2));
 		console.log("Data sent: "+JSON.stringify(suicides,null,2));
-			
+			}else{
+				res.send(JSON.stringify(suicides,null,2));
+				console.log("Data sent: "+JSON.stringify(suicides,null,2));
+				}			
 		}else{
 			console.log("ERROR. No se encuentra el recurso.");
 			res.sendStatus(404, "El recurso no existe.");
@@ -137,7 +141,7 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	});
 	
 });	
-/*	
+
 app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 	console.log("GET COUNTRY_f03");
 	
@@ -150,9 +154,13 @@ app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 		});
 		if(suicides.length>=1){
 			console.log("El pais existe. Enviado");
-		
-		res.send(JSON.stringify(suicides,null,2));
+			if(suicides.length ==1 ){
+				res.send(JSON.stringify(suicides[0],null,2));
 		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+			}else{
+				res.send(JSON.stringify(suicides,null,2));
+		console.log("Data sent: "+JSON.stringify(suicides,null,2));
+			}
 			
 		}else{
 			console.log("ERROR. No existe ese pais");
@@ -161,8 +169,8 @@ app.get(BASE_API_URL+"/global-suicides/:country",(req, res) => {
 		
 	});
 	
-});*/
-/*	
+});
+
 app.get(BASE_API_URL+"/global-suicides/:country/:year",(req, res) => {
 	console.log("GET YEAR");
 	
@@ -174,15 +182,18 @@ app.get(BASE_API_URL+"/global-suicides/:country/:year",(req, res) => {
 		suicides.forEach((c) => {
 			delete c._id;
 		});
+		if(suicides.length >= 1){
+			console.log("recurso+year encontrado.");
+			res.send(JSON.stringify(suicides[0],null,2));
+			console.log("Data sent: "+JSON.stringify(suicides,null,2));
+		}else{
+			console.log("recurso+year NO EXISTE.");
+			res.sendStatus(404,"ERROR. No existe ese pais.");
+		}
 		
-		console.log("New GET_0.2  suicides");
-		
-		res.send(JSON.stringify(suicides,null,2));
-		
-		console.log("Data sent: "+JSON.stringify(suicides,null,2));
 	});
 	
-});*/
+});
 
 //DELETE GLOBAL SUICIDES	
 app.delete(BASE_API_URL+"/global-suicides",(req, res) => {
@@ -265,7 +276,28 @@ app.put(BASE_API_URL + "/global-suicides", (req, res) => {
 	
     res.sendStatus(405, "NOT ALLOWED(Put)");
 });
+//DELETE F03 MODIFICAR PATA D01
+app.delete(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 	
+var country = req.params.country;
+	
+	globalSuicidesDb.find({country}, (err, suicides) => {
+
+		if(suicides.length>=1){
+			console.log("BORRAR EL PAIS: "+country);
+			globalSuicidesDb.remove({country}, { multi: true }, function (err, numRemoved) {
+			});
+			res.sendStatus(200,"OK");
+			console.log("Pais Borrado.");
+		}else{
+			console.log("ERROR. No existe ese pais");
+			res.sendStatus(404,"ERROR. No existe ese pais.");
+		}
+		
+	});	
+});
+	
+
 	
 }
 	
