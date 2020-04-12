@@ -96,8 +96,8 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	if(req.query.women) request["women"] = parseFloat(req.query.women);
 	if(req.query.average) request["average"] = parseFloat(req.query.average);
 	
-	const offset = parseInt(req.query.offset) || 0;
-	const limit = parseInt(req.query.limit) || Number.MAX_SAFE_INTEGER;
+	var offset = parseInt(req.query.offset) || 0;
+	var limit = parseInt(req.query.limit) || Number.MAX_SAFE_INTEGER;
 	
 	globalSuicidesDb.find(request,{}).skip(offset).limit(limit).exec((err, suicides) => {
 		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
