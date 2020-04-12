@@ -306,6 +306,7 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 	});
 });
 
+
 	
 }
 	
