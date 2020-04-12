@@ -56,26 +56,6 @@ module.exports = function init(app,globalSuicidesDb){
 //=============================================================
 //======================ZONA TEST==============================
 //=============================================================
-
-	/*
-//GET GLOBAL SUICIDES
-app.get(BASE_API_URL+"/global-suicides",(req, res) => {
-	console.log("New GET_0.1 global-suicides");
-	
-	globalSuicidesDb.find({}, (err, suicides) => {
-		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
-		suicides.forEach((c) => {
-			delete c._id;
-		});
-		
-		console.log("New GET_0.2  suicides");
-		
-		res.send(JSON.stringify(suicides,null,2));
-		
-		console.log("Data sent: "+JSON.stringify(suicides,null,2));
-	});
-	
-});*/
 	
 	
 
@@ -116,8 +96,8 @@ app.get(BASE_API_URL+"/global-suicides",(req, res) => {
 	if(req.query.women) request["women"] = parseFloat(req.query.women);
 	if(req.query.average) request["average"] = parseFloat(req.query.average);
 	
-	const offset =  0;
-	const limit = Number.MAX_SAFE_INTEGER;
+	const offset = parseInt(req.query.offset) || 0;
+	const limit = parseInt(req.query.limit) || Number.MAX_SAFE_INTEGER;
 	
 	globalSuicidesDb.find(request,{}).skip(offset).limit(limit).exec((err, suicides) => {
 		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
