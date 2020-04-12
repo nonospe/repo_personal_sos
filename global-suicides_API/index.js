@@ -209,7 +209,7 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 	   		res.sendStatus(400,"BAD REQUEST.null.");
 			
 		}else{
-			console.log("ERROR 405. Estructura o comando no permitido.");
+			console.log("ERROR 400. Estructura o comando no permitido.");//******preguntado en piazza di es 400 o 405*****
 			console.log("pais: "+ !country+" "+country);
 			console.log("lc: "+ !lengthCoord+" "+lengthCoord);
 			console.log("latc: "+ !latitudeCoord+" "+latitudeCoord);
@@ -218,7 +218,7 @@ app.post(BASE_API_URL+"/global-suicides",(req,res) =>{
 			console.log("mujer: "+ !women+" "+women);
 			console.log("media: "+ !average+" "+average);
 			console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
-	   		res.sendStatus(405,"NO PERMITIDO");
+	   		res.sendStatus(400,"NO PERMITIDO");
 		}
 		
 	}else{
