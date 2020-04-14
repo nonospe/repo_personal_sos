@@ -155,12 +155,21 @@ app.get(BASE_API_URL+"/global-marriages/:param", (req, res) => {
 	app.post(BASE_API_URL+"/global-marriages", (req, res) => {
         var marriage = req.body;
 
+        var pais= marriage.country;
+        var anno = parseInt(marriage.year);
+        var matrimonios = parseInt(marriage.marriages);
+        var media_h = parseFloat(marriage.avg_m);
+        var media_m = parseFloat(marriage.avg_wm);
+        
+
 		if((marriage == {}) 
-			 || (marriage.country == null) 
-             || (marriage.year == null) 
-			 || (marriage.marriages == null) 
-			 || (marriage.avg_m == null) 
-             || (marriage.avg_wm == null)){	
+			 || (pais== null ) 
+             || (anno== null   || isNaN(anno)) 
+			 || (matrimonios == null || isNaN(matrimonios))  
+			 || (media_h==null || isNaN(media_h) ) 
+             || (media_m == null || isNaN(media_m))
+             || (Object.keys(marriage).length != 5))
+             {
 			res.sendStatus(400,"BAD REQUEST");
 		} else {
 			db.insert(marriage);
@@ -189,14 +198,32 @@ app.post(BASE_API_URL + "/global-marriages/:country/:year", (req, res) => {
         var country = req.params.country;
         var year = parseInt(req.params.year);
 
-		var body = req.body;
+        var marriage = req.body;
+        
+        var pais= marriage.country;
+        var anno = parseInt(marriage.year);
+        var matrimonios = parseInt(marriage.marriages);
+        var media_h = parseFloat(marriage.avg_m);
+        var media_m = parseFloat(marriage.avg_wm);
 
-		db.update({country: country, year: year}, body, (error, numRemoved) => {
-			// Checking if any data has been updated (numRemoved>=1)
-			if (numRemoved == 0) {
-				res.sendStatus(404, "NOT FOUND");
-			} else {
-				res.sendStatus(200, "OK");
+		db.update({country: country, year: year}, marriage, (error, numRemoved) => {
+            // Checking if any data has been updated (numRemoved>=1)
+            if ((marriage == {}) 
+            || (pais== null ) 
+            || (anno== null   || isNaN(anno)) 
+            || (matrimonios == null || isNaN(matrimonios))  
+            || (media_h==null || isNaN(media_h) ) 
+            || (media_m == null || isNaN(media_m))
+            || (Object.keys(marriage).length != 5))
+            {
+           res.sendStatus(400,"BAD REQUEST");
+            }
+			 else {
+                if(numRemoved == 0) {
+                    res.sendStatus(404, "NOT FOUND");
+                }else{
+                res.sendStatus(200, "OK");
+            }
 			}
 		});
 
@@ -286,7 +313,3 @@ app.post(BASE_API_URL + "/global-marriages/:country/:year", (req, res) => {
     
 
 };
-
-
-
-
