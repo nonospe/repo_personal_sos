@@ -22,7 +22,7 @@
 <p><strong>Repository</strong>: <a href="https://github.com/gti-sos/SOS1920-10">gti-sos/SOS1920-10</a></p>
 
 
-<p><strong>URL</strong>: <a href="http://sos1920-00.herokuapp.com" rel="nofollow">http://sos1920-10.herokuapp.com</a></p>
+<p><strong>URL</strong>: <a href="http://sos1920-10.herokuapp.com" rel="nofollow">http://sos1920-10.herokuapp.com</a></p>
 <p><strong>APIs</strong>:</p>
 <ul>
 <li><a href="https://sos1920-10.herokuapp.com/api/v1/global-suicides" rel="nofollow">https://sos1920-10.herokuapp.com/api/v1/global-suicides</a> (developed by <a href="https://github.com/nonospe">Antonio Jose Jimenez Segovia</a>)</li>
