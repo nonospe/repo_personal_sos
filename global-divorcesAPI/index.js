@@ -137,7 +137,17 @@ app.post(BASE_API_URL+"/global-divorces",(req,res) =>{
 	console.log("New POST .../global-divorces");
 
 	var newDivorce = req.body;
-	if((newDivorce == "") || (newDivorce.country == null)){
+	
+	var pais = newDivorce.country;
+	var anio = newDivorce.year;	
+	var divorcios = newDivorce.divorce;
+	var crudeRate = newDivorce.crude_rate;
+	var variacion = newDivorce.variation;
+
+
+	
+	
+	if(newDivorce == "" || newDivorce.country == null || typeof pais != "string" || isNaN(anio) || isNaN(divorcios) || isNaN(crudeRate) || isNaN(variacion)){
 		res.sendStatus(400,"BAD REQUEST");
 	} else {
 		db.insert(newDivorce);
@@ -169,14 +179,24 @@ app.put(BASE_API_URL+"/global-divorces/:country/:year", (req,res)=>{
 					 "year": parseInt(req.params.year)};	
 	var updatedDivorce = req.body;
 	
+	var pais = updatedDivorce.country;
+	var anio = updatedDivorce.year;	
+	var divorcios = updatedDivorce.divorce;
+	var crudeRate = updatedDivorce.crude_rate;
+	var variacion = updatedDivorce.variation;
+
 	
-    db.update(parametros, updatedDivorce, {}, function (err, numReplaced) {
-  if (numReplaced == 0) {
-		res.sendStatus(404, "NOT FOUND");
-  }else {
-	  res.sendStatus(200, "OK");
-			}
-});
+    if(updatedDivorce == "" || typeof pais != "string" || isNaN(anio) || isNaN(divorcios) || isNaN(crudeRate) || isNaN(variacion)){
+		res.sendStatus(400,"BAD REQUEST");} 
+	else{
+		db.update(parametros, updatedDivorce, {}, function (err, numReplaced) {
+			if (numReplaced == 0) {
+				res.sendStatus(404, "NOT FOUND");
+ 		 	}else {
+				console.log("Data updated:"+JSON.stringify(updatedDivorce,null,2));
+			 	res.sendStatus(200, "OK");
+					}
+});}
     
 	
 });
