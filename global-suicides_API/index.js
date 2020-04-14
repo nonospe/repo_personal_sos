@@ -285,8 +285,18 @@ var country = req.params.country;
 //PUT globalSuicides  /api/v1/global-suicides/xxx actualiza ese recurso
 app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 	
-	var country = req.params.country;
-	var body = req.body;
+	console.log("PUT Global Suicides.")
+	
+	var newGlobalSuicides = req.body;
+	var country = newGlobalSuicides.country;
+	var lengthCoord = parseFloat(newGlobalSuicides.lengthCoord);
+	var latitudeCoord = parseFloat(newGlobalSuicides.latitudeCoord);
+	var year = parseInt(newGlobalSuicides.year);
+	var men = parseFloat(newGlobalSuicides.men);
+	var women = parseFloat(newGlobalSuicides.women);
+	var average = parseFloat(newGlobalSuicides.average);
+	
+	console.log(newGlobalSuicides);
 	
 	globalSuicidesDb.find({country}, (err, suicides) => {
 		//la query se pone entre llaves, para que devuelva todo se deja vacío si se pone name: "nono"  sólo devuelve los nono
@@ -295,6 +305,28 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 		});
 		if(suicides.length >= 1){
 			console.log("Pais encontrado. Actualizando recurso.");
+			if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || 
+	   			(!average) || (Object.keys(newGlobalSuicides).length != 7) || newGlobalSuicides == {}){
+		
+				if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
+			
+					console.log("ERROR 400. Datos de pais incorrectos.")
+	   				res.sendStatus(400,"BAD REQUEST.null.");
+			
+					}else{
+						console.log("ERROR 400. Estructura o comando no permitido.");//******preguntado en piazza di es 400 o 405*****
+						console.log("pais: "+ !country+" "+country);
+						console.log("lc: "+ !lengthCoord+" "+lengthCoord);
+						console.log("latc: "+ !latitudeCoord+" "+latitudeCoord);
+						console.log("año: "+ !year+" "+year);
+						console.log("hombre: "+ !men+" "+men);
+						console.log("mujer: "+ !women+" "+women);
+						console.log("media: "+ !average+" "+average);
+						console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
+	   					res.sendStatus(400,"NO PERMITIDO");
+						}		
+			}
+			
 			globalSuicidesDb.update({country: country}, body, (error, numRemoved) => {
 				console.log("Recurso actualizado.");
 				res.sendStatus(200, "OK");
