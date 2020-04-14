@@ -327,7 +327,7 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 						}		
 			}
 			
-			globalSuicidesDb.update({country: country}, body, (error, numRemoved) => {
+			globalSuicidesDb.update({country: country}, newGlobalSuicides, (error, numRemoved) => {
 				console.log("Recurso actualizado.");
 				res.sendStatus(200, "OK");
 			})
