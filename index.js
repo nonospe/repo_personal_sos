@@ -4,6 +4,7 @@ const dataStore = require("nedb");
 const path = require("path");
 const globalSuicidesAPI = require(path.join(__dirname,"global-suicides_API"));
 const marriagesAPI = require(path.join(__dirname,"marriagesAPI"));
+const globalDivorcesAPI = require(path.join(__dirname,"global-divorcesAPI"));
 
 
 var port = process.env.PORT || 80;
@@ -36,13 +37,13 @@ globalSuicidesAPI(app, globalSuicidesDb);
 /*========= API_Jesús Vázquez Rivadeneyra =========*/
 /*====================================================*/
 
-marriagesAPI(app)
+marriagesAPI(app);
 
 /*====================================================*/
 /*========= Juan Manuel Cortés Alonso =========*/
 /*====================================================*/
 
-
+globalDivorcesAPI(app);
 /*====================================================*/
 /*================== WEB_SERVER_TIME ================*/
 /*===================================================*/
