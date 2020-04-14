@@ -306,31 +306,33 @@ app.put(BASE_API_URL+"/global-suicides/:country", (req,res)=>{
 		if(suicides.length >= 1){
 			console.log("Pais encontrado. Actualizando recurso.");
 			if((!country) || (!lengthCoord) || (!latitudeCoord) || (!year) || (!men) || (!women) || 
-	   			(!average) || (Object.keys(newGlobalSuicides).length != 7) || newGlobalSuicides == {}){
-		
-				if((country == "") || (lengthCoord == 0) || (latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0)){
+	   			(!average) || (Object.keys(newGlobalSuicides).length != 7) || newGlobalSuicides == {} || (country == "") || (lengthCoord == 0) || 						(latitudeCoord == 0) || (year <= 0) || (men < 0) || (women < 0) || (average < 0) || isNaN(lengthCoord)
+			  || isNaN(latitudeCoord)|| isNaN(year)|| isNaN(men)|| isNaN(women)|| isNaN(average)){
+				
+				console.log("ISNAN: "+isNaN(average));
 			
-					console.log("ERROR 400. Datos de pais incorrectos.")
+					console.log("ERROR 400. Datos de pais incorrectos.");
+					console.log("ERROR 400. Estructura o comando no permitido.");//******preguntado en piazza di es 400 o 405*****
+					console.log("pais: "+ !country+" "+country);
+					console.log("lc: "+ !lengthCoord+" "+lengthCoord);
+					console.log("latc: "+ !latitudeCoord+" "+latitudeCoord);
+					console.log("año: "+ !year+" "+year);
+					console.log("hombre: "+ !men+" "+men);
+					console.log("mujer: "+ !women+" "+women);
+					console.log("media: "+ !average+" "+average);
+					console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
 	   				res.sendStatus(400,"BAD REQUEST.null.");
-			
-					}else{
-						console.log("ERROR 400. Estructura o comando no permitido.");//******preguntado en piazza di es 400 o 405*****
-						console.log("pais: "+ !country+" "+country);
-						console.log("lc: "+ !lengthCoord+" "+lengthCoord);
-						console.log("latc: "+ !latitudeCoord+" "+latitudeCoord);
-						console.log("año: "+ !year+" "+year);
-						console.log("hombre: "+ !men+" "+men);
-						console.log("mujer: "+ !women+" "+women);
-						console.log("media: "+ !average+" "+average);
-						console.log("Tamaño: "+ Object.keys(newGlobalSuicides).length);
-	   					res.sendStatus(400,"NO PERMITIDO");
-						}		
-			}
-			
-			globalSuicidesDb.update({country: country}, newGlobalSuicides, (error, numRemoved) => {
+		
+			}else{
+				
+				globalSuicidesDb.update({country: country}, newGlobalSuicides, (error, numRemoved) => {
 				console.log("Recurso actualizado.");
 				res.sendStatus(200, "OK");
 			})
+				
+			}
+			
+
 		}else{
 			console.log("recurso NO EXISTE.");
 			res.sendStatus(404,"ERROR. No existe ese pais.");
