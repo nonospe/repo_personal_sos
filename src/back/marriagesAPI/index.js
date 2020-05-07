@@ -4,7 +4,7 @@ module.exports = function (app) {
     const path = require ("path"); //para que podamos trabajar de manera standar con las direcciones (No haya problema entre Unix y Windows )
 
     const dbFileName =path.join(__dirname,"./globalMarriages.db");   //archivo donde almacenamos los datos que vamos a persistir
-    const BASE_API_URL="/api/v1";   // ESta es la URL base
+    const BASE_API_URL="/api/v2";   // ESta es la URL base
     
     const db = new dataStore({
         filename: dbFileName,

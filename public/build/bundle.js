@@ -9372,7 +9372,7 @@ var app = (function () {
     	onMount(getCountriesYears);
 
     	async function ReloadTable() {
-    		const res = await fetch("/api/v1/global-marriages/loadInitialData");
+    		const res = await fetch("/api/v2/global-marriages/loadInitialData");
 
     		if (res.ok) {
     			const initialMarriages = await res.json();
@@ -9387,7 +9387,7 @@ var app = (function () {
 
     	//Funcion que devuelve array con los años y los paises existentes para poder hacer un select y usarlo para buscar
     	async function getCountriesYears() {
-    		const res = await fetch("/api/v1/global-marriages"); //Recogemos los datos de /api/v1/global-marriages
+    		const res = await fetch("/api/v2/global-marriages"); //Recogemos los datos de /api/v2/global-marriages
 
     		if (res.ok) {
     			const json = await res.json();
@@ -9411,7 +9411,7 @@ var app = (function () {
 
     	async function getMarriages() {
     		console.log("Fetching marriages...");
-    		const res = await fetch("/api/v1/global-marriages?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages);
+    		const res = await fetch("/api/v2/global-marriages?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages);
 
     		if (res.ok) {
     			console.log("Ok:");
@@ -9422,7 +9422,7 @@ var app = (function () {
     			if (marriages.length != 10) {
     				$$invalidate(6, moreData = false);
     			} else {
-    				const next = await fetch("/api/v1/global-marriages?offset=" + numberElementsPages * (offset + 1) + "&limit=" + numberElementsPages);
+    				const next = await fetch("/api/v2/global-marriages?offset=" + numberElementsPages * (offset + 1) + "&limit=" + numberElementsPages);
     				console.log("La variable NEXT tiene el estado: " + next.status);
     				const jsonNext = await next.json();
 
@@ -9447,7 +9447,7 @@ var app = (function () {
     		if (newMarriage.country == "" || newMarriage.country == null || newMarriage.year == "" || newMarriage.year == null) {
     			alert("Se debe incluir el nombre del país y el año obligatoriamente");
     		} else {
-    			const res = await fetch("/api/v1/global-marriages", {
+    			const res = await fetch("/api/v2/global-marriages", {
     				method: "POST",
     				body: JSON.stringify(newMarriage),
     				headers: { "Content-Type": "application/json" }
@@ -9466,7 +9466,7 @@ var app = (function () {
     	async function deleteMarriage(country, year) {
     		console.log("Deleting marrriage..." + JSON.stringify(country) + +JSON.stringify(year));
 
-    		const res = await fetch("/api/v1/global-marriages/" + country + "/" + year, { method: "DELETE" }).then(function (res) {
+    		const res = await fetch("/api/v2/global-marriages/" + country + "/" + year, { method: "DELETE" }).then(function (res) {
     			if (res.ok) {
     				getMarriages();
     				getCountriesYears();
@@ -9481,7 +9481,7 @@ var app = (function () {
     	async function deleteGlobalMarriages() {
     		console.log("Deleting all marriages data...");
 
-    		const res = await fetch("/api/v1/global-marriages/", { method: "DELETE" }).then(function (res) {
+    		const res = await fetch("/api/v2/global-marriages/", { method: "DELETE" }).then(function (res) {
     			if (res.ok) {
     				const json = res.json();
     				$$invalidate(8, marriages = json);
@@ -9498,7 +9498,7 @@ var app = (function () {
     		console.log("Searching data: " + country + " and " + year);
 
     		/* Checking if the fields are empty */
-    		var url = "/api/v1/global-marriages";
+    		var url = "/api/v2/global-marriages";
 
     		if (country != "-" && year != "-") {
     			url = url + "?country=" + country + "&year=" + year;
@@ -10414,7 +10414,7 @@ var app = (function () {
 
     	async function getMarriage() {
     		console.log("Fetching marriage...");
-    		const res = await fetch("/api/v1/global-marriages/" + params.country + "/" + params.year);
+    		const res = await fetch("/api/v2/global-marriages/" + params.country + "/" + params.year);
 
     		if (res.ok) {
     			console.log("Ok:");
@@ -10435,7 +10435,7 @@ var app = (function () {
     	async function updateMarriage() {
     		console.log("Updating marriage..." + JSON.stringify(params.country));
 
-    		const res = await fetch("/api/v1/global-marriages/" + params.country + "/" + params.year, {
+    		const res = await fetch("/api/v2/global-marriages/" + params.country + "/" + params.year, {
     			method: "PUT",
     			body: JSON.stringify({
     				country: params.country,
@@ -10640,7 +10640,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (1:0) <script>   import  {onMount}
+    // (1:0) <script>     import  {onMount}
     function create_catch_block$2(ctx) {
     	const block = {
     		c: noop,
@@ -10655,7 +10655,7 @@ var app = (function () {
     		block,
     		id: create_catch_block$2.name,
     		type: "catch",
-    		source: "(1:0) <script>   import  {onMount}",
+    		source: "(1:0) <script>     import  {onMount}",
     		ctx
     	});
 
@@ -10758,11 +10758,11 @@ var app = (function () {
     			t10 = text(/*totalElements*/ ctx[0]);
     			t11 = space();
     			create_component(table.$$.fragment);
-    			add_location(p0, file$d, 281, 1, 6625);
-    			add_location(h60, file$d, 282, 1, 6634);
-    			add_location(p1, file$d, 285, 1, 6813);
-    			add_location(p2, file$d, 292, 1, 7072);
-    			add_location(h61, file$d, 293, 1, 7081);
+    			add_location(p0, file$d, 281, 1, 6906);
+    			add_location(h60, file$d, 282, 1, 6916);
+    			add_location(p1, file$d, 285, 1, 7098);
+    			add_location(p2, file$d, 292, 1, 7364);
+    			add_location(h61, file$d, 293, 1, 7374);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -11209,17 +11209,17 @@ var app = (function () {
     			td7 = element("td");
     			t13 = text(t13_value);
     			t14 = space();
-    			add_location(td0, file$d, 320, 6, 7930);
+    			add_location(td0, file$d, 320, 6, 8250);
     			attr_dev(a, "href", a_href_value = "#/suicide/" + /*suicide*/ ctx[30].country);
-    			add_location(a, file$d, 321, 10, 8043);
-    			add_location(td1, file$d, 321, 6, 8039);
-    			add_location(td2, file$d, 322, 6, 8114);
-    			add_location(td3, file$d, 323, 6, 8151);
-    			add_location(td4, file$d, 324, 6, 8190);
-    			add_location(td5, file$d, 325, 6, 8220);
-    			add_location(td6, file$d, 326, 6, 8249);
-    			add_location(td7, file$d, 327, 6, 8280);
-    			add_location(tr, file$d, 319, 5, 7919);
+    			add_location(a, file$d, 321, 10, 8364);
+    			add_location(td1, file$d, 321, 6, 8360);
+    			add_location(td2, file$d, 322, 6, 8436);
+    			add_location(td3, file$d, 323, 6, 8474);
+    			add_location(td4, file$d, 324, 6, 8514);
+    			add_location(td5, file$d, 325, 6, 8545);
+    			add_location(td6, file$d, 326, 6, 8575);
+    			add_location(td7, file$d, 327, 6, 8607);
+    			add_location(tr, file$d, 319, 5, 8238);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -11427,33 +11427,33 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$d, 297, 5, 7169);
-    			add_location(th1, file$d, 298, 5, 7190);
-    			add_location(th2, file$d, 299, 5, 7209);
-    			add_location(th3, file$d, 300, 5, 7239);
-    			add_location(th4, file$d, 301, 5, 7268);
-    			add_location(th5, file$d, 302, 5, 7286);
-    			add_location(th6, file$d, 303, 5, 7307);
-    			add_location(th7, file$d, 304, 5, 7327);
-    			add_location(tr0, file$d, 296, 4, 7159);
-    			add_location(thead, file$d, 295, 3, 7147);
-    			add_location(td0, file$d, 309, 4, 7388);
-    			add_location(input0, file$d, 310, 10, 7475);
-    			add_location(td1, file$d, 310, 6, 7471);
-    			add_location(input1, file$d, 311, 10, 7533);
-    			add_location(td2, file$d, 311, 6, 7529);
-    			add_location(input2, file$d, 312, 10, 7595);
-    			add_location(td3, file$d, 312, 6, 7591);
-    			add_location(input3, file$d, 313, 10, 7659);
-    			add_location(td4, file$d, 313, 6, 7655);
-    			add_location(input4, file$d, 314, 10, 7714);
-    			add_location(td5, file$d, 314, 6, 7710);
-    			add_location(input5, file$d, 315, 10, 7768);
-    			add_location(td6, file$d, 315, 6, 7764);
-    			add_location(input6, file$d, 316, 10, 7824);
-    			add_location(td7, file$d, 316, 6, 7820);
-    			add_location(tr1, file$d, 308, 4, 7379);
-    			add_location(tbody, file$d, 307, 3, 7367);
+    			add_location(th0, file$d, 297, 5, 7466);
+    			add_location(th1, file$d, 298, 5, 7488);
+    			add_location(th2, file$d, 299, 5, 7508);
+    			add_location(th3, file$d, 300, 5, 7539);
+    			add_location(th4, file$d, 301, 5, 7569);
+    			add_location(th5, file$d, 302, 5, 7588);
+    			add_location(th6, file$d, 303, 5, 7610);
+    			add_location(th7, file$d, 304, 5, 7631);
+    			add_location(tr0, file$d, 296, 4, 7455);
+    			add_location(thead, file$d, 295, 3, 7442);
+    			add_location(td0, file$d, 309, 4, 7697);
+    			add_location(input0, file$d, 310, 10, 7785);
+    			add_location(td1, file$d, 310, 6, 7781);
+    			add_location(input1, file$d, 311, 10, 7844);
+    			add_location(td2, file$d, 311, 6, 7840);
+    			add_location(input2, file$d, 312, 10, 7907);
+    			add_location(td3, file$d, 312, 6, 7903);
+    			add_location(input3, file$d, 313, 10, 7972);
+    			add_location(td4, file$d, 313, 6, 7968);
+    			add_location(input4, file$d, 314, 10, 8028);
+    			add_location(td5, file$d, 314, 6, 8024);
+    			add_location(input5, file$d, 315, 10, 8083);
+    			add_location(td6, file$d, 315, 6, 8079);
+    			add_location(input6, file$d, 316, 10, 8140);
+    			add_location(td7, file$d, 316, 6, 8136);
+    			add_location(tr1, file$d, 308, 4, 7687);
+    			add_location(tbody, file$d, 307, 3, 7674);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -11631,7 +11631,7 @@ var app = (function () {
     	return block;
     }
 
-    // (277:18)     Loading suicides...   {:then suicides}
+    // (277:18)       Loading suicides...     {:then suicides}
     function create_pending_block$2(ctx) {
     	let t;
 
@@ -11654,7 +11654,7 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(277:18)     Loading suicides...   {:then suicides}",
+    		source: "(277:18)       Loading suicides...     {:then suicides}",
     		ctx
     	});
 
@@ -11957,12 +11957,12 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			t4 = space();
     			if (if_block2) if_block2.c();
-    			add_location(p, file$d, 270, 1, 6484);
+    			add_location(p, file$d, 270, 1, 6754);
     			attr_dev(div, "role", "alert");
     			attr_dev(div, "id", "div_alert");
     			set_style(div, "display", "none");
-    			add_location(div, file$d, 271, 1, 6493);
-    			add_location(main, file$d, 269, 0, 6476);
+    			add_location(div, file$d, 271, 1, 6764);
+    			add_location(main, file$d, 269, 0, 6745);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12524,8 +12524,8 @@ var app = (function () {
     			h2.textContent = "Página de Gestión de Datos de Suicidios";
     			t1 = space();
     			create_component(suicidestable.$$.fragment);
-    			add_location(h2, file$e, 8, 0, 83);
-    			add_location(main, file$e, 6, 0, 75);
+    			add_location(h2, file$e, 8, 0, 91);
+    			add_location(main, file$e, 6, 0, 81);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");

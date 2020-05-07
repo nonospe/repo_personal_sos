@@ -45,7 +45,7 @@
 
 
 	async function ReloadTable() {
-		const res = await fetch("/api/v1/global-marriages/loadInitialData")
+		const res = await fetch("/api/v2/global-marriages/loadInitialData")
 
 		if (res.ok) {
 			const initialMarriages = await res.json();
@@ -62,7 +62,7 @@
 
 //Funcion que devuelve array con los años y los paises existentes para poder hacer un select y usarlo para buscar
 	async function getCountriesYears() {
-		const res = await fetch("/api/v1/global-marriages"); //Recogemos los datos de /api/v1/global-marriages
+		const res = await fetch("/api/v2/global-marriages"); //Recogemos los datos de /api/v2/global-marriages
 
 		if (res.ok) {
 			const json = await res.json();
@@ -92,7 +92,7 @@
 	async function getMarriages() {
 
 		console.log("Fetching marriages...");
-		const res = await fetch("/api/v1/global-marriages?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages); 
+		const res = await fetch("/api/v2/global-marriages?offset=" + numberElementsPages * offset + "&limit=" + numberElementsPages); 
 
 		if (res.ok) {
 			console.log("Ok:");
@@ -105,7 +105,7 @@
 				moreData=false
 			} else{
 
-						const next = await fetch("/api/v1/global-marriages?offset=" + numberElementsPages * (offset+1) + "&limit=" + numberElementsPages); 
+						const next = await fetch("/api/v2/global-marriages?offset=" + numberElementsPages * (offset+1) + "&limit=" + numberElementsPages); 
 						console.log("La variable NEXT tiene el estado: " + next.status)
 						const jsonNext = await next.json();
 						
@@ -140,7 +140,7 @@
 			alert("Se debe incluir el nombre del país y el año obligatoriamente");
 
 		} else {
-				const res = await fetch("/api/v1/global-marriages", {
+				const res = await fetch("/api/v2/global-marriages", {
 					method: "POST",
 					body: JSON.stringify(newMarriage),
 					headers: {
@@ -163,7 +163,7 @@
 	async function deleteMarriage(country,year) {
 		console.log("Deleting marrriage..." + JSON.stringify(country)+ + JSON.stringify(year) );
 
-		const res = await fetch("/api/v1/global-marriages/" + country+"/"+year, {
+		const res = await fetch("/api/v2/global-marriages/" + country+"/"+year, {
 			method: "DELETE"
 		}).then(function (res) {
 			if (res.ok){
@@ -180,7 +180,7 @@
 	//Borramos todos los paises
 	async function deleteGlobalMarriages() {
 		console.log("Deleting all marriages data...");
-		const res = await fetch("/api/v1/global-marriages/", {
+		const res = await fetch("/api/v2/global-marriages/", {
 			method: "DELETE"
 		}).then(function (res) {
 			if (res.ok){
@@ -201,7 +201,7 @@
 		console.log("Searching data: " + country + " and " + year);
 
 		/* Checking if the fields are empty */
-		var url = "/api/v1/global-marriages";
+		var url = "/api/v2/global-marriages";
 
 		if (country != "-" && year != "-") {
 			url = url + "?country=" + country + "&year=" + year; 
