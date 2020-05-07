@@ -1459,39 +1459,58 @@ var app = (function () {
 
     function create_fragment$1(ctx) {
     	let main;
+    	let h2;
+    	let t1;
+    	let body;
+    	let p0;
+    	let t2;
+    	let p1;
+    	let t3;
     	let div;
     	let button0;
-    	let t1;
+    	let t5;
     	let button1;
-    	let t3;
+    	let t7;
     	let button2;
 
     	const block = {
     		c: function create() {
     			main = element("main");
+    			h2 = element("h2");
+    			h2.textContent = "Acceso al front-end del grupo SOS1920-10";
+    			t1 = space();
+    			body = element("body");
+    			p0 = element("p");
+    			t2 = space();
+    			p1 = element("p");
+    			t3 = space();
     			div = element("div");
     			button0 = element("button");
     			button0.textContent = "API de Matrimonios Globales";
-    			t1 = space();
+    			t5 = space();
     			button1 = element("button");
-    			button1.textContent = "API de Suicidios Globales";
-    			t3 = space();
+    			button1.textContent = "API de Divorcios Globales";
+    			t7 = space();
     			button2 = element("button");
-    			button2.textContent = "API de Divorcios Globales";
+    			button2.textContent = "API de Suicidios Globales";
+    			add_location(h2, file, 2, 1, 12);
+    			add_location(p0, file, 5, 1, 75);
+    			add_location(p1, file, 6, 1, 85);
     			attr_dev(button0, "type", "button");
     			attr_dev(button0, "class", "btn btn-outline-success");
     			attr_dev(button0, "onclick", "window.location.href='#/globalMarriagesAPI'");
-    			add_location(button0, file, 3, 2, 37);
+    			add_location(button0, file, 9, 2, 123);
     			attr_dev(button1, "type", "button");
     			attr_dev(button1, "class", "btn btn-outline-success");
-    			attr_dev(button1, "onclick", "window.location.href='#/global-suicides_API'");
-    			add_location(button1, file, 4, 2, 189);
+    			attr_dev(button1, "onclick", "window.location.href='#/globalDivorcesAPI'");
+    			add_location(button1, file, 10, 2, 275);
     			attr_dev(button2, "type", "button");
     			attr_dev(button2, "class", "btn btn-outline-success");
-    			attr_dev(button2, "onclick", "window.location.href='#/globalDivorcesAPI'");
-    			add_location(button2, file, 5, 2, 340);
+    			attr_dev(button2, "onclick", "window.location.href='#/global-suicides_API'");
+    			add_location(button2, file, 11, 2, 424);
     			attr_dev(div, "class", "div-home");
-    			add_location(div, file, 2, 1, 11);
+    			add_location(div, file, 8, 1, 97);
+    			add_location(body, file, 3, 1, 64);
     			add_location(main, file, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -1499,11 +1518,18 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, div);
+    			append_dev(main, h2);
+    			append_dev(main, t1);
+    			append_dev(main, body);
+    			append_dev(body, p0);
+    			append_dev(body, t2);
+    			append_dev(body, p1);
+    			append_dev(body, t3);
+    			append_dev(body, div);
     			append_dev(div, button0);
-    			append_dev(div, t1);
+    			append_dev(div, t5);
     			append_dev(div, button1);
-    			append_dev(div, t3);
+    			append_dev(div, t7);
     			append_dev(div, button2);
     		},
     		p: noop,
