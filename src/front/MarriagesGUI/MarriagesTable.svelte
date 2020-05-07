@@ -197,18 +197,24 @@
 
 
 	async function search(country, year) {
-		pageButton=false;
+
+		
+		
 		console.log("Searching data: " + country + " and " + year);
 
 		/* Checking if the fields are empty */
 		var url = "/api/v2/global-marriages";
-
+	
 		if (country != "-" && year != "-") {
 			url = url + "?country=" + country + "&year=" + year; 
+			
 		} else if (country != "-" && year == "-") {
 			url = url + "?country=" + country;
+			
 		} else if (country == "-" && year != "-") {
 			url = url + "?year=" + year;
+		
+
 		}
 
 		const res = await fetch(url);
@@ -217,7 +223,7 @@
 			console.log("Ok:");
 			const json = await res.json();
 			marriages = json;			
-
+			pageButton=false
 
 			console.log("Found " + marriages.length + " global marrriages stats.");
 		
@@ -229,7 +235,7 @@
 				responseAlert("Busqueda en el año "+ year+ " realizada correctamente")  
 		}
 		} else {
-			errorResponse(res)
+			errorResponse(res,country,year)
 			console.log("ERROR!");
 		}
 		
@@ -262,7 +268,7 @@
 		alert_element.innerHTML = "";
 	}
 
-function errorResponse(res, msg) {
+function errorResponse(res, recurso1,recurso2) {
 	var status = res.status
 	switch (status) {
 		case 400:
@@ -272,7 +278,7 @@ function errorResponse(res, msg) {
 			alert("Codigo de error: " + status + '\n'+ "No tiene permisos para realizar esta accion");
 			break;
 		case 404:
-			alert("Codigo de error: " + status + '\n'+ "Página no encontrada");
+			alert("Codigo de error: " + status + '\n'+ "Error. Recurso '" +recurso1+" " +recurso2+"' no encontrado.");
 			break;
 		case 405:
 			alert("Codigo de error: " + status + '\n'+ "Metodo no permitido");
@@ -395,7 +401,16 @@ function errorResponse(res, msg) {
 	</Pagination>
 	{/if}
 
+
+	{#if pageButton==false}
+    <Button style="float: left; margin-left: 20px;" outline  color="secondary" on:click={getMarriages} on:click={pageButton=true}>Atrás</Button>
+    {/if}
+
+	{#if pageButton==true}
 	<Button outline  color="secondary"  on:click="{getMarriages}" > <i class="fas fa-arrow-circle-left"></i> Inicio API </Button>
+	{/if}
+
+
 	<Button outline  on:click={deleteGlobalMarriages}   color="danger"> <i class="fa fa-trash" aria-hidden="true"></i> Borrar todo </Button>
 	<Button outline  color="primary" on:click="{ReloadTable}"> <i class="fas fa-search"></i> Recargar API </Button>
 
