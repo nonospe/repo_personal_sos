@@ -10859,7 +10859,7 @@ var app = (function () {
     	return block;
     }
 
-    // (282:1) {:then suicides}
+    // (287:1) {:then suicides}
     function create_then_block$2(ctx) {
     	let p0;
     	let t0;
@@ -10955,11 +10955,11 @@ var app = (function () {
     			t10 = text(/*totalElements*/ ctx[0]);
     			t11 = space();
     			create_component(table.$$.fragment);
-    			add_location(p0, file$d, 282, 1, 6931);
-    			add_location(h60, file$d, 283, 1, 6941);
-    			add_location(p1, file$d, 286, 1, 7123);
-    			add_location(p2, file$d, 293, 1, 7389);
-    			add_location(h61, file$d, 294, 1, 7399);
+    			add_location(p0, file$d, 287, 1, 7037);
+    			add_location(h60, file$d, 288, 1, 7047);
+    			add_location(p1, file$d, 291, 1, 7229);
+    			add_location(p2, file$d, 298, 1, 7495);
+    			add_location(h61, file$d, 299, 1, 7505);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p0, anchor);
@@ -11068,14 +11068,14 @@ var app = (function () {
     		block,
     		id: create_then_block$2.name,
     		type: "then",
-    		source: "(282:1) {:then suicides}",
+    		source: "(287:1) {:then suicides}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (285:1) <Button color="success" on:click="{reloadSuicides}">
+    // (290:1) <Button color="success" on:click="{reloadSuicides}">
     function create_default_slot_10$1(ctx) {
     	let t;
 
@@ -11095,14 +11095,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10$1.name,
     		type: "slot",
-    		source: "(285:1) <Button color=\\\"success\\\" on:click=\\\"{reloadSuicides}\\\">",
+    		source: "(290:1) <Button color=\\\"success\\\" on:click=\\\"{reloadSuicides}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (286:1) <Button color="danger" on:click="{deleteSuicides}">
+    // (291:1) <Button color="danger" on:click="{deleteSuicides}">
     function create_default_slot_9$1(ctx) {
     	let t;
 
@@ -11122,14 +11122,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9$1.name,
     		type: "slot",
-    		source: "(286:1) <Button color=\\\"danger\\\" on:click=\\\"{deleteSuicides}\\\">",
+    		source: "(291:1) <Button color=\\\"danger\\\" on:click=\\\"{deleteSuicides}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (289:3) <Label for="exampleEmail">
+    // (294:3) <Label for="exampleEmail">
     function create_default_slot_8$1(ctx) {
     	let t;
 
@@ -11149,14 +11149,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8$1.name,
     		type: "slot",
-    		source: "(289:3) <Label for=\\\"exampleEmail\\\">",
+    		source: "(294:3) <Label for=\\\"exampleEmail\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (288:1) <FormGroup>
+    // (293:1) <FormGroup>
     function create_default_slot_7$1(ctx) {
     	let t;
     	let updating_value;
@@ -11239,14 +11239,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$1.name,
     		type: "slot",
-    		source: "(288:1) <FormGroup>",
+    		source: "(293:1) <FormGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (293:1) <Button color="success" on:click="{searchSuicides(searchCountry)}">
+    // (298:1) <Button color="success" on:click="{searchSuicides(searchCountry)}">
     function create_default_slot_6$1(ctx) {
     	let t;
 
@@ -11266,14 +11266,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$1.name,
     		type: "slot",
-    		source: "(293:1) <Button color=\\\"success\\\" on:click=\\\"{searchSuicides(searchCountry)}\\\">",
+    		source: "(298:1) <Button color=\\\"success\\\" on:click=\\\"{searchSuicides(searchCountry)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (311:8) <Button color="primary" on:click="{insertSuicide}">
+    // (316:8) <Button color="primary" on:click="{insertSuicide}">
     function create_default_slot_5$1(ctx) {
     	let t;
 
@@ -11293,14 +11293,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$1.name,
     		type: "slot",
-    		source: "(311:8) <Button color=\\\"primary\\\" on:click=\\\"{insertSuicide}\\\">",
+    		source: "(316:8) <Button color=\\\"primary\\\" on:click=\\\"{insertSuicide}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (322:10) <Button outline color="danger" on:click="{deleteSuicide(suicide.country)}">
+    // (327:10) <Button outline color="danger" on:click="{deleteSuicide(suicide.country)}">
     function create_default_slot_4$1(ctx) {
     	let t;
 
@@ -11320,14 +11320,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$1.name,
     		type: "slot",
-    		source: "(322:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteSuicide(suicide.country)}\\\">",
+    		source: "(327:10) <Button outline color=\\\"danger\\\" on:click=\\\"{deleteSuicide(suicide.country)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (320:4) {#each suicides as suicide}
+    // (325:4) {#each suicides as suicide}
     function create_each_block$1(ctx) {
     	let tr;
     	let td0;
@@ -11406,17 +11406,17 @@ var app = (function () {
     			td7 = element("td");
     			t13 = text(t13_value);
     			t14 = space();
-    			add_location(td0, file$d, 321, 6, 8275);
+    			add_location(td0, file$d, 326, 6, 8381);
     			attr_dev(a, "href", a_href_value = "#/suicide/" + /*suicide*/ ctx[30].country);
-    			add_location(a, file$d, 322, 10, 8389);
-    			add_location(td1, file$d, 322, 6, 8385);
-    			add_location(td2, file$d, 323, 6, 8461);
-    			add_location(td3, file$d, 324, 6, 8499);
-    			add_location(td4, file$d, 325, 6, 8539);
-    			add_location(td5, file$d, 326, 6, 8570);
-    			add_location(td6, file$d, 327, 6, 8600);
-    			add_location(td7, file$d, 328, 6, 8632);
-    			add_location(tr, file$d, 320, 5, 8263);
+    			add_location(a, file$d, 327, 10, 8495);
+    			add_location(td1, file$d, 327, 6, 8491);
+    			add_location(td2, file$d, 328, 6, 8567);
+    			add_location(td3, file$d, 329, 6, 8605);
+    			add_location(td4, file$d, 330, 6, 8645);
+    			add_location(td5, file$d, 331, 6, 8676);
+    			add_location(td6, file$d, 332, 6, 8706);
+    			add_location(td7, file$d, 333, 6, 8738);
+    			add_location(tr, file$d, 325, 5, 8369);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -11488,14 +11488,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(320:4) {#each suicides as suicide}",
+    		source: "(325:4) {#each suicides as suicide}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (296:1) <Table bordered>
+    // (301:1) <Table bordered>
     function create_default_slot_3$1(ctx) {
     	let thead;
     	let tr0;
@@ -11624,33 +11624,33 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$d, 298, 5, 7491);
-    			add_location(th1, file$d, 299, 5, 7513);
-    			add_location(th2, file$d, 300, 5, 7533);
-    			add_location(th3, file$d, 301, 5, 7564);
-    			add_location(th4, file$d, 302, 5, 7594);
-    			add_location(th5, file$d, 303, 5, 7613);
-    			add_location(th6, file$d, 304, 5, 7635);
-    			add_location(th7, file$d, 305, 5, 7656);
-    			add_location(tr0, file$d, 297, 4, 7480);
-    			add_location(thead, file$d, 296, 3, 7467);
-    			add_location(td0, file$d, 310, 4, 7722);
-    			add_location(input0, file$d, 311, 10, 7810);
-    			add_location(td1, file$d, 311, 6, 7806);
-    			add_location(input1, file$d, 312, 10, 7869);
-    			add_location(td2, file$d, 312, 6, 7865);
-    			add_location(input2, file$d, 313, 10, 7932);
-    			add_location(td3, file$d, 313, 6, 7928);
-    			add_location(input3, file$d, 314, 10, 7997);
-    			add_location(td4, file$d, 314, 6, 7993);
-    			add_location(input4, file$d, 315, 10, 8053);
-    			add_location(td5, file$d, 315, 6, 8049);
-    			add_location(input5, file$d, 316, 10, 8108);
-    			add_location(td6, file$d, 316, 6, 8104);
-    			add_location(input6, file$d, 317, 10, 8165);
-    			add_location(td7, file$d, 317, 6, 8161);
-    			add_location(tr1, file$d, 309, 4, 7712);
-    			add_location(tbody, file$d, 308, 3, 7699);
+    			add_location(th0, file$d, 303, 5, 7597);
+    			add_location(th1, file$d, 304, 5, 7619);
+    			add_location(th2, file$d, 305, 5, 7639);
+    			add_location(th3, file$d, 306, 5, 7670);
+    			add_location(th4, file$d, 307, 5, 7700);
+    			add_location(th5, file$d, 308, 5, 7719);
+    			add_location(th6, file$d, 309, 5, 7741);
+    			add_location(th7, file$d, 310, 5, 7762);
+    			add_location(tr0, file$d, 302, 4, 7586);
+    			add_location(thead, file$d, 301, 3, 7573);
+    			add_location(td0, file$d, 315, 4, 7828);
+    			add_location(input0, file$d, 316, 10, 7916);
+    			add_location(td1, file$d, 316, 6, 7912);
+    			add_location(input1, file$d, 317, 10, 7975);
+    			add_location(td2, file$d, 317, 6, 7971);
+    			add_location(input2, file$d, 318, 10, 8038);
+    			add_location(td3, file$d, 318, 6, 8034);
+    			add_location(input3, file$d, 319, 10, 8103);
+    			add_location(td4, file$d, 319, 6, 8099);
+    			add_location(input4, file$d, 320, 10, 8159);
+    			add_location(td5, file$d, 320, 6, 8155);
+    			add_location(input5, file$d, 321, 10, 8214);
+    			add_location(td6, file$d, 321, 6, 8210);
+    			add_location(input6, file$d, 322, 10, 8271);
+    			add_location(td7, file$d, 322, 6, 8267);
+    			add_location(tr1, file$d, 314, 4, 7818);
+    			add_location(tbody, file$d, 313, 3, 7805);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -11821,14 +11821,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$1.name,
     		type: "slot",
-    		source: "(296:1) <Table bordered>",
+    		source: "(301:1) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (278:18)       Loading suicides...     {:then suicides}
+    // (283:18)       Loading suicides...     {:then suicides}
     function create_pending_block$2(ctx) {
     	let t;
 
@@ -11851,14 +11851,14 @@ var app = (function () {
     		block,
     		id: create_pending_block$2.name,
     		type: "pending",
-    		source: "(278:18)       Loading suicides...     {:then suicides}",
+    		source: "(283:18)       Loading suicides...     {:then suicides}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (335:1) {#if backButton}
+    // (340:1) {#if backButton}
     function create_if_block_2$3(ctx) {
     	let current;
 
@@ -11909,14 +11909,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2$3.name,
     		type: "if",
-    		source: "(335:1) {#if backButton}",
+    		source: "(340:1) {#if backButton}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (336:1) <Button outline color="primary" on:click="{backPage}">
+    // (341:1) <Button outline color="primary" on:click="{backPage}">
     function create_default_slot_2$2(ctx) {
     	let t;
 
@@ -11936,14 +11936,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$2.name,
     		type: "slot",
-    		source: "(336:1) <Button outline color=\\\"primary\\\" on:click=\\\"{backPage}\\\">",
+    		source: "(341:1) <Button outline color=\\\"primary\\\" on:click=\\\"{backPage}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (338:1) {#if nextButton}
+    // (343:1) {#if nextButton}
     function create_if_block_1$3(ctx) {
     	let current;
 
@@ -11993,14 +11993,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$3.name,
     		type: "if",
-    		source: "(338:1) {#if nextButton}",
+    		source: "(343:1) {#if nextButton}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (339:1) <Button color="primary" on:click="{nextPage}">
+    // (344:1) <Button color="primary" on:click="{nextPage}">
     function create_default_slot_1$2(ctx) {
     	let t;
 
@@ -12020,14 +12020,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$2.name,
     		type: "slot",
-    		source: "(339:1) <Button color=\\\"primary\\\" on:click=\\\"{nextPage}\\\">",
+    		source: "(344:1) <Button color=\\\"primary\\\" on:click=\\\"{nextPage}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (341:1) {#if popSearch}
+    // (346:1) {#if popSearch}
     function create_if_block$8(ctx) {
     	let current;
 
@@ -12078,14 +12078,14 @@ var app = (function () {
     		block,
     		id: create_if_block$8.name,
     		type: "if",
-    		source: "(341:1) {#if popSearch}",
+    		source: "(346:1) {#if popSearch}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (342:1) <Button color="primary" on:click="{getSuicides}" on:click="{resetPopSearch}">
+    // (347:1) <Button color="primary" on:click="{getSuicides}" on:click="{resetPopSearch}">
     function create_default_slot$2(ctx) {
     	let t;
 
@@ -12105,7 +12105,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$2.name,
     		type: "slot",
-    		source: "(342:1) <Button color=\\\"primary\\\" on:click=\\\"{getSuicides}\\\" on:click=\\\"{resetPopSearch}\\\">",
+    		source: "(347:1) <Button color=\\\"primary\\\" on:click=\\\"{getSuicides}\\\" on:click=\\\"{resetPopSearch}\\\">",
     		ctx
     	});
 
@@ -12154,12 +12154,12 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			t4 = space();
     			if (if_block2) if_block2.c();
-    			add_location(p, file$d, 271, 1, 6779);
+    			add_location(p, file$d, 276, 1, 6885);
     			attr_dev(div, "role", "alert");
     			attr_dev(div, "id", "div_alert");
     			set_style(div, "display", "none");
-    			add_location(div, file$d, 272, 1, 6789);
-    			add_location(main, file$d, 270, 0, 6770);
+    			add_location(div, file$d, 277, 1, 6895);
+    			add_location(main, file$d, 275, 0, 6876);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -12467,19 +12467,25 @@ var app = (function () {
     		console.log("Searching suicides...");
     		$$invalidate(1, nextButton = false);
     		$$invalidate(2, backButton = false);
-    		const res = await fetch(URL_BASE + "/" + searchCountry, { method: "GET" });
 
-    		if (res.ok) {
-    			$$invalidate(3, popSearch = true);
-    			console.log("Ok:");
-    			const json = await res.json();
-    			$$invalidate(6, suicides = json);
-    			console.log(suicides);
-    			responseAlert$2();
+    		if (searchCountry == "") {
+    			alert("Debe introducir un País.");
+    			location.reload();
     		} else {
-    			console.log("NO existe");
-    			errorResponse$2(res, searchCountry);
-    			getSuicides();
+    			const res = await fetch(URL_BASE + "/" + searchCountry, { method: "GET" });
+
+    			if (res.ok) {
+    				$$invalidate(3, popSearch = true);
+    				console.log("Ok:");
+    				const json = await res.json();
+    				$$invalidate(6, suicides = json);
+    				console.log(suicides);
+    				responseAlert$2();
+    			} else {
+    				console.log("NO existe");
+    				errorResponse$2(res, searchCountry);
+    				getSuicides();
+    			}
     		}
     	}
 

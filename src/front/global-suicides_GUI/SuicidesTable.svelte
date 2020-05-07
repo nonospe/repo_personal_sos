@@ -140,6 +140,7 @@
 
 		if(searchCountry == ""){
 			alert("Debe introducir un País.");
+			location.reload();
 		}else{
 			
 		const res  = await fetch(URL_BASE+"/"+searchCountry, {
