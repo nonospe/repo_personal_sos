@@ -4,11 +4,18 @@ const bodyParser = require("body-parser"); //
 const path = require ("path");
 const marriagesAPI =require(path.join(__dirname,"./src/back/marriagesAPI"));
 
+const globalSuicidesAPI = require(path.join(__dirname,"./src/back/global-suicides_API"));
+
+
+
+
 var app = express();//
 
 app.use(bodyParser.json());   //
 
 marriagesAPI(app);   
+
+globalSuicidesAPI(app);
 
 var port = process.env.PORT || 9999; //
 
