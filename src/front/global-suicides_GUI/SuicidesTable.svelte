@@ -261,8 +261,9 @@ function clearAlert() {
 
 function resetPopSearch() {
 	popSearch = false;
-	getSuicides();
-	window.location.href= "/#/global-suicides_API";
+	location.reload();
+	//getSuicides();
+	//window.location.href= "/#/global-suicides_API";
 	}
 
 </script>
