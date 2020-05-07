@@ -10,15 +10,21 @@
 	import editSuicide from './global-suicides_GUI/editSuicide.svelte';
 	import EmptyTable from './global-suicides_GUI/EmptyTable.svelte';
 	
-
+	import globalDivorces from './DivorcesGUI/App.svelte';  
+	import EditDivorce from './DivorcesGUI/EditDivorce.svelte';
 
 	const routes = {
 		"/": Home,
 		"/global-marriages/:country/:year": EditMarriage,
 		"/globalMarriagesAPI":globalMarriages,
+
 		"/global-suicides_API" : SuicidesTable,
 		"/suicide/:countryName": editSuicide,
 		"/empty": EmptyTable,
+
+		"/globalDivorcesAPI/:country/:year": EditDivorce,
+		"/globalDivorcesAPI":globalDivorces, 
+		
 		"*": NotFound
 	};
 </script>
