@@ -6,6 +6,9 @@ const marriagesAPI =require(path.join(__dirname,"./src/back/marriagesAPI"));
 
 const globalSuicidesAPI = require(path.join(__dirname,"./src/back/global-suicides_API"));
 
+const globalDivorcesAPI = require(path.join(__dirname,"./src/back/divorcesAPI"));
+
+
 
 
 
@@ -16,6 +19,8 @@ app.use(bodyParser.json());   //
 marriagesAPI(app);   
 
 globalSuicidesAPI(app);
+
+globalDivorcesAPI(app);
 
 var port = process.env.PORT || 9999; //
 
