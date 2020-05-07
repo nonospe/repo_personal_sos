@@ -137,8 +137,11 @@
 
 		nextButton = false;
 		backButton = false;
-		
 
+		if(searchCountry == ""){
+			alert("Debe introducir un País.");
+		}else{
+			
 		const res  = await fetch(URL_BASE+"/"+searchCountry, {
 		method: "GET"});
 		if(res.ok) {
@@ -152,6 +155,7 @@
 			console.log("NO existe");
 			errorResponse(res,searchCountry);
 			getSuicides();
+		}
 		}	
 	}
 
