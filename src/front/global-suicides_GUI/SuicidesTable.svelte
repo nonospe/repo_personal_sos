@@ -73,8 +73,10 @@
 	}
 
 	async function insertSuicide(){
-
+		
 		console.log("Inserting suicide...");
+		popSearch = false;
+
 		const res  = await fetch(URL_BASE, {
 			method: "POST",
 			body: JSON.stringify(newSuicide),
@@ -94,8 +96,10 @@
 	}
 
 	async function deleteSuicide(country){
-
+		
 		console.log("Deleting suicide...");
+		popSearch = false;
+
 		const res  = await fetch(URL_BASE +"/"+ country,{
 			method: "DELETE",
 			body: JSON.stringify(newSuicide),
@@ -103,8 +107,9 @@
 				"Content-type": "application/json"
 			}
 		}).then(function (res) {
-			responseAlert();
+			responseAlert();			
 			getSuicides();
+			location.reload();
 		});
 	}
 
@@ -128,6 +133,7 @@
 		}).then(function (res) {
 			getSuicides();
 			responseAlert();
+			location.reload();
 		});
 	}
 
@@ -344,7 +350,7 @@ function resetPopSearch() {
 	<Button color="primary" on:click="{nextPage}">Siguiente página</Button>
 	{/if}
 	{#if popSearch}
-	<Button color="primary" on:click="{getSuicides}" on:click="{resetPopSearch}">Atrás</Button>
+	<Button color="primary" on:click="{getSuicides}" on:click="{resetPopSearch}">Inicio</Button>
 	{/if}
 
 </main>
