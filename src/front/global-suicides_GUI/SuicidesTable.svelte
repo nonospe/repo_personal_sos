@@ -88,6 +88,7 @@
 				responseAlert();
 			resetNewSuicite();//función que resetea los parámetros de entrada
 			getSuicides();
+			location.reload();
 			}else{
 				errorResponse(res);
 			}
