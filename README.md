@@ -26,7 +26,9 @@
 <p><strong>APIs</strong>:</p>
 <ul>
 <li><a href="https://sos1920-10.herokuapp.com/api/v2/global-suicides" rel="nofollow">https://sos1920-10.herokuapp.com/api/v2/global-suicides</a> (developed by <a href="https://github.com/nonospe">Antonio Jose Jimenez Segovia</a>)</li>
-[![Build Status](https://travis-ci.org/nonospe/repo_personal_sos.svg?branch=master)](https://travis-ci.org/nonospe/repo_personal_sos)
+
+[![Build Status](https://travis-ci.org/nonospe/repo_personal_sos.svg?branch=master)](https://travis-ci.org/nonospe/repo_personal_sos)	
+
 <li><a href="https://sos1920-10.herokuapp.com/api/v2/global-marriages" rel="nofollow">https://sos1920-10.herokuapp.com/api/v2/global-marriages</a> (developed by <a href="https://github.com/rivadeneyraj">Jesús Vázquez Rivadeneyra</a>)</li>
 <li><a href="https://sos1920-10.herokuapp.com/api/v2/global-divorces" rel="nofollow">https://sos1920-10.herokuapp.com/api/v2/global-divorces</a> (developed by <a href="https://github.com/juanmacortes9">Juan Manuel Cortés Alonso</a>)</li>
 </ul>
@@ -36,7 +38,7 @@
 <li><a href="https://documenter.getpostman.com/view/10651736/SzYUaMVS" rel="nofollow">https://documenter.getpostman.com/view/10651736/SzYUaMVS</a> (developed by <a href="https://github.com/nonospe">Antonio Jose Jimenez Segovia</a>)</li>
 <li><a href="https://documenter.getpostman.com/view/10695115/SzYUaMLT" rel="nofollow">https://documenter.getpostman.com/view/10695115/SzYUaMLT</a> (developed by <a href="https://github.com/rivadeneyraj">Jesús Vázquez Rivadeneyra</a>)</li>
 <li><a href="https://documenter.getpostman.com/view/10695121/SzYUaMR1" rel="nofollow">https://documenter.getpostman.com/view/10695121/SzYUaMR1</a> (developed by <a href="https://github.com/juanmacortes9">Juan Manuel Cortés Alonso</a>)</li>
-			
+		
 		
 		
 </ul>
