@@ -1,0 +1,10 @@
+languaje: node_js
+node_js:
+  - "12.6.*"
+install:
+  - "npm install"
+before_script:
+  - "npm run build"
+  - "npm start &"
+script:
+  - "npm test"
