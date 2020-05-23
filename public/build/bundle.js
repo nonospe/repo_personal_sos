@@ -14513,24 +14513,24 @@ var app = (function () {
     			code.textContent = "series-label";
     			t6 = text(" module, which adds a label to each line for\r\n            enhanced readability.");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$h, 88, 4, 1809);
+    			add_location(script0, file$h, 88, 4, 1877);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$h, 89, 4, 1880);
+    			add_location(script1, file$h, 89, 4, 1948);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$h, 90, 4, 1961);
+    			add_location(script2, file$h, 90, 4, 2029);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$h, 91, 4, 2039);
+    			add_location(script3, file$h, 91, 4, 2107);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$h, 92, 4, 2119);
-    			add_location(h1, file$h, 96, 4, 2249);
+    			add_location(script4, file$h, 92, 4, 2187);
+    			add_location(h1, file$h, 96, 4, 2317);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$h, 98, 8, 2326);
-    			add_location(code, file$h, 101, 12, 2493);
+    			add_location(div, file$h, 98, 8, 2394);
+    			add_location(code, file$h, 101, 12, 2561);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$h, 99, 8, 2362);
+    			add_location(p, file$h, 99, 8, 2430);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$h, 97, 4, 2282);
-    			add_location(main, file$h, 95, 0, 2237);
+    			add_location(figure, file$h, 97, 4, 2350);
+    			add_location(main, file$h, 95, 0, 2305);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14592,9 +14592,17 @@ var app = (function () {
     			return d.country;
     		})));
 
-    	let dataGraph = MyData.map(d => {
-    		return [countries.indexOf(d.country), d["men"], d["women"], d["average"]];
-    	});
+    	let mens = Array.from(new Set(MyData.map(d => {
+    			return d.men;
+    		})));
+
+    	let womens = Array.from(new Set(MyData.map(d => {
+    			return d.women;
+    		})));
+
+    	let averages = Array.from(new Set(MyData.map(d => {
+    			return d.average;
+    		})));
 
     	console.log("Graph_NONO");
 
@@ -14633,9 +14641,9 @@ var app = (function () {
     		},
     		credits: { enabled: false },
     		series: [
-    			{ name: "MEN", data: [107, 31, 6] },
-    			{ name: "WOMEN", data: [200, 6, 69] },
-    			{ name: "AVERAGE", data: [31, 8, 15] }
+    			{ name: "MEN", data: mens },
+    			{ name: "WOMEN", data: womens },
+    			{ name: "AVERAGE", data: averages }
     		]
     	});
     }

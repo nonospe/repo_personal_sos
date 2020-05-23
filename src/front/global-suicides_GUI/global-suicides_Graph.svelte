@@ -13,9 +13,9 @@ MyData = await resData.json();
 
 let countries = Array.from(new Set(MyData.map((d) => {return d.country;})));
 
-let dataGraph = MyData.map((d) => {
-            return [countries.indexOf(d.country),d["men"], d["women"], d["average"]]; 
-        });
+let mens = Array.from(new Set(MyData.map((d) => {return d.men;})));
+let womens = Array.from(new Set(MyData.map((d) => {return d.women;})));
+let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
 
 console.log("Graph_NONO");
 
@@ -72,13 +72,13 @@ Highcharts.chart('container', {
     },
     series: [{
         name: 'MEN',
-        data: [107, 31,6]
+        data: mens
     }, {
         name: 'WOMEN',
-        data: [200, 6,69]
+        data: womens
     }, {
         name: 'AVERAGE',
-        data: [31,8,15]
+        data: averages
     }]
 });
 }
