@@ -278,6 +278,10 @@ function resetPopSearch() {
 	//window.location.href= "/#/global-suicides_API";
 	}
 
+function toGraph1(){
+	window.location.href= "/#/suicidesGraph";
+}
+
 </script>
 
 <main>
@@ -296,6 +300,7 @@ function resetPopSearch() {
 	<h6>Acciones Especiales:</h6>
 	<Button color="success" on:click="{reloadSuicides}">Reiniciar API</Button>
 	<Button color="danger" on:click="{deleteSuicides}">Borrar API</Button>
+	<Button color="primary" on:click="{toGraph1}">Grafico1</Button>
 	<p></p>
 	<FormGroup>
 			<Label for="exampleEmail">Buscar País:</Label>
