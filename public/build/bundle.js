@@ -14468,6 +14468,33 @@ var app = (function () {
     const { console: console_1$7 } = globals;
     const file$h = "src\\front\\global-suicides_GUI\\global-suicides_Graph.svelte";
 
+    // (101:4) <Button color="info" on:click="{pop}">
+    function create_default_slot$5(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Atrás");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$5.name,
+    		type: "slot",
+    		source: "(101:4) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$i(ctx) {
     	let script0;
     	let script0_src_value;
@@ -14481,16 +14508,26 @@ var app = (function () {
     	let script4_src_value;
     	let t0;
     	let main;
-    	let h1;
+    	let h2;
     	let t2;
+    	let t3;
     	let figure;
     	let div;
-    	let t3;
-    	let p;
     	let t4;
-    	let code;
-    	let t6;
+    	let p;
+    	let current;
     	let dispose;
+
+    	const button = new Button({
+    			props: {
+    				color: "info",
+    				$$slots: { default: [create_default_slot$5] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -14501,36 +14538,35 @@ var app = (function () {
     			script4 = element("script");
     			t0 = space();
     			main = element("main");
-    			h1 = element("h1");
-    			h1.textContent = "TEST MYGRAPH hight";
+    			h2 = element("h2");
+    			h2.textContent = "Gráfico highchart";
     			t2 = space();
+    			create_component(button.$$.fragment);
+    			t3 = space();
     			figure = element("figure");
     			div = element("div");
-    			t3 = space();
+    			t4 = space();
     			p = element("p");
-    			t4 = text("Basic line chart showing trends in a dataset. This chart includes the\r\n            ");
-    			code = element("code");
-    			code.textContent = "series-label";
-    			t6 = text(" module, which adds a label to each line for\r\n            enhanced readability.");
+    			p.textContent = "El gráfico de barras muestra un estudio de personas que se han suicidado por cada 100.000 habitantes\r\n            en distintos países.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$h, 88, 4, 1877);
+    			add_location(script0, file$h, 91, 4, 2087);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$h, 89, 4, 1948);
+    			add_location(script1, file$h, 92, 4, 2158);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$h, 90, 4, 2029);
+    			add_location(script2, file$h, 93, 4, 2239);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$h, 91, 4, 2107);
+    			add_location(script3, file$h, 94, 4, 2317);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$h, 92, 4, 2187);
-    			add_location(h1, file$h, 96, 4, 2317);
+    			add_location(script4, file$h, 95, 4, 2397);
+    			add_location(h2, file$h, 99, 4, 2527);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$h, 98, 8, 2394);
-    			add_location(code, file$h, 101, 12, 2561);
+    			attr_dev(div, "class", "svelte-pgwtr9");
+    			add_location(div, file$h, 102, 8, 2661);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$h, 99, 8, 2430);
-    			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$h, 97, 4, 2350);
-    			add_location(main, file$h, 95, 0, 2305);
+    			add_location(p, file$h, 103, 8, 2697);
+    			attr_dev(figure, "class", "highcharts-figure svelte-pgwtr9");
+    			add_location(figure, file$h, 101, 4, 2617);
+    			add_location(main, file$h, 98, 0, 2515);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14543,21 +14579,36 @@ var app = (function () {
     			append_dev(document.head, script4);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
-    			append_dev(main, h1);
+    			append_dev(main, h2);
     			append_dev(main, t2);
+    			mount_component(button, main, null);
+    			append_dev(main, t3);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t3);
+    			append_dev(figure, t4);
     			append_dev(figure, p);
-    			append_dev(p, t4);
-    			append_dev(p, code);
-    			append_dev(p, t6);
+    			current = true;
     			if (remount) dispose();
     			dispose = listen_dev(script4, "load", loadGraph, false, false, false);
     		},
-    		p: noop,
-    		i: noop,
-    		o: noop,
+    		p: function update(ctx, [dirty]) {
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
     		d: function destroy(detaching) {
     			detach_dev(script0);
     			detach_dev(script1);
@@ -14566,6 +14617,7 @@ var app = (function () {
     			detach_dev(script4);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_component(button);
     			dispose();
     		}
     	};
@@ -14589,7 +14641,11 @@ var app = (function () {
     	MyData = await resData.json();
 
     	let countries = Array.from(new Set(MyData.map(d => {
-    			return d.country;
+    			return d.country + " " + d.year;
+    		})));
+
+    	let years = Array.from(new Set(MyData.map(d => {
+    			return d.year;
     		})));
 
     	let mens = Array.from(new Set(MyData.map(d => {
@@ -14608,11 +14664,9 @@ var app = (function () {
 
     	Highcharts.chart("container", {
     		chart: { type: "bar" },
-    		title: {
-    			text: "Historic World Population by Region"
-    		},
+    		title: { text: "Tasa de suicidio por países." },
     		subtitle: {
-    			text: "Source: <a href=\"https://en.wikipedia.org/wiki/World_population\">Wikipedia.org</a>"
+    			text: "Fuente: <a href=\"https://es.wikipedia.org/wiki/Anexo:Pa%C3%ADses_por_tasa_de_suicidio\">Wikipedia.org</a>"
     		},
     		xAxis: {
     			categories: countries,
@@ -14621,19 +14675,19 @@ var app = (function () {
     		yAxis: {
     			min: 0,
     			title: {
-    				text: "Population (millions)",
+    				text: "Suicidios por cada 100.000 personas.",
     				align: "high"
     			},
     			labels: { overflow: "justify" }
     		},
-    		tooltip: { valueSuffix: " millions" },
+    		tooltip: { valueSuffix: "Personas" },
     		plotOptions: { bar: { dataLabels: { enabled: true } } },
     		legend: {
     			layout: "vertical",
     			align: "right",
     			verticalAlign: "top",
     			x: -40,
-    			y: 80,
+    			y: 350,
     			floating: true,
     			borderWidth: 1,
     			backgroundColor: Highcharts.defaultOptions.legend.backgroundColor || "#FFFFFF",
@@ -14641,9 +14695,9 @@ var app = (function () {
     		},
     		credits: { enabled: false },
     		series: [
-    			{ name: "MEN", data: mens },
-    			{ name: "WOMEN", data: womens },
-    			{ name: "AVERAGE", data: averages }
+    			{ name: "Hombres", data: mens },
+    			{ name: "Mujeres", data: womens },
+    			{ name: "Media", data: averages }
     		]
     	});
     }
@@ -14657,7 +14711,7 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Global_suicides_Graph", $$slots, []);
-    	$$self.$capture_state = () => ({ URL_BASE: URL_BASE$3, loadGraph });
+    	$$self.$capture_state = () => ({ Button, pop, URL_BASE: URL_BASE$3, loadGraph });
     	return [];
     }
 
@@ -16351,7 +16405,7 @@ var app = (function () {
     				style: "float: left; margin-left: 20px;",
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$5] },
+    				$$slots: { default: [create_default_slot$6] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -16407,7 +16461,7 @@ var app = (function () {
     }
 
     // (350:1) <Button style="float: left; margin-left: 20px;" outline  color="secondary" on:click={pop} on:click={showPagination=true}>
-    function create_default_slot$5(ctx) {
+    function create_default_slot$6(ctx) {
     	let t;
 
     	const block = {
@@ -16424,7 +16478,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$5.name,
+    		id: create_default_slot$6.name,
     		type: "slot",
     		source: "(350:1) <Button style=\\\"float: left; margin-left: 20px;\\\" outline  color=\\\"secondary\\\" on:click={pop} on:click={showPagination=true}>",
     		ctx
@@ -17501,7 +17555,7 @@ var app = (function () {
     }
 
     // (187:4) <Button outline color="secondary" on:click="{pop}">
-    function create_default_slot$6(ctx) {
+    function create_default_slot$7(ctx) {
     	let i;
     	let t;
 
@@ -17524,7 +17578,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$6.name,
+    		id: create_default_slot$7.name,
     		type: "slot",
     		source: "(187:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
     		ctx
@@ -17560,7 +17614,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$6] },
+    				$$slots: { default: [create_default_slot$7] },
     				$$scope: { ctx }
     			},
     			$$inline: true
