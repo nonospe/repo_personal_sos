@@ -1,0 +1,89 @@
+.main-body {
+    padding: 2%;
+}
+
+
+.div-home {
+    text-align: center;
+    margin: 3%;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.main-title {
+    text-align: center;
+}
+
+.button-search {
+    margin-bottom: 1%;
+    margin-top: 1%;
+    float: right;
+}
+
+.image {
+    
+    max-width: 400px;
+}
+
+/* For highchart charts */
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 320px; 
+    max-width: 1000px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+/* For D3 chart */
+
+#map-holder {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .country{
+    fill: #d0d0d0;   /* country colour */
+    stroke: #2A2C39; /* country border colour */
+    stroke-width: 1; /* country border width */
+  }
+  .country-on{
+    fill: #4B5358;   /* highlight colour for selected country */
+  }
+  .countryLabel{
+    display: none;   /* hide all country labels by default */
+  }
+  .countryName{
+    fill: #FFFAFF;   /* country label text colour */
+  }
+  .countryLabelBg{
+    fill: #30BCED;   /* country label background colour */
+  }
