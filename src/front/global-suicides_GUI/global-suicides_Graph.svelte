@@ -8,14 +8,10 @@ const URL_BASE = "api/v2/global-suicides";
 
 async function loadGraph(){
 
-let MyData = [];
-
 const resData = await fetch(URL_BASE);
-
-MyData = await resData.json();
+let MyData = await resData.json();
 
 let countries = Array.from(new Set(MyData.map((d) => {return d.country+" "+d.year;})));
-let years = Array.from(new Set(MyData.map((d) => {return d.year;})));
 let mens = Array.from(new Set(MyData.map((d) => {return d.men;})));
 let womens = Array.from(new Set(MyData.map((d) => {return d.women;})));
 let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));

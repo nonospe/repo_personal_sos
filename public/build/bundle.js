@@ -14468,7 +14468,7 @@ var app = (function () {
     const { console: console_1$7 } = globals;
     const file$h = "src\\front\\global-suicides_GUI\\global-suicides_Graph.svelte";
 
-    // (101:4) <Button color="info" on:click="{pop}">
+    // (97:4) <Button color="info" on:click="{pop}">
     function create_default_slot$5(ctx) {
     	let t;
 
@@ -14488,7 +14488,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$5.name,
     		type: "slot",
-    		source: "(101:4) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
+    		source: "(97:4) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
     		ctx
     	});
 
@@ -14549,24 +14549,24 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "El gráfico de barras muestra un estudio de personas que se han suicidado por cada 100.000 habitantes\r\n            en distintos países.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$h, 91, 4, 2087);
+    			add_location(script0, file$h, 87, 4, 1998);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$h, 92, 4, 2158);
+    			add_location(script1, file$h, 88, 4, 2069);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$h, 93, 4, 2239);
+    			add_location(script2, file$h, 89, 4, 2150);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$h, 94, 4, 2317);
+    			add_location(script3, file$h, 90, 4, 2228);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$h, 95, 4, 2397);
-    			add_location(h2, file$h, 99, 4, 2527);
+    			add_location(script4, file$h, 91, 4, 2308);
+    			add_location(h2, file$h, 95, 4, 2438);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-pgwtr9");
-    			add_location(div, file$h, 102, 8, 2661);
+    			add_location(div, file$h, 98, 8, 2572);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$h, 103, 8, 2697);
+    			add_location(p, file$h, 99, 8, 2608);
     			attr_dev(figure, "class", "highcharts-figure svelte-pgwtr9");
-    			add_location(figure, file$h, 101, 4, 2617);
-    			add_location(main, file$h, 98, 0, 2515);
+    			add_location(figure, file$h, 97, 4, 2528);
+    			add_location(main, file$h, 94, 0, 2426);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -14636,16 +14636,11 @@ var app = (function () {
     const URL_BASE$3 = "api/v2/global-suicides";
 
     async function loadGraph() {
-    	let MyData = [];
     	const resData = await fetch(URL_BASE$3);
-    	MyData = await resData.json();
+    	let MyData = await resData.json();
 
     	let countries = Array.from(new Set(MyData.map(d => {
     			return d.country + " " + d.year;
-    		})));
-
-    	let years = Array.from(new Set(MyData.map(d => {
-    			return d.year;
     		})));
 
     	let mens = Array.from(new Set(MyData.map(d => {
