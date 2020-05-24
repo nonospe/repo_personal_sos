@@ -49853,7 +49853,7 @@ var app = (function () {
     const { console: console_1$8 } = globals;
     const file$i = "src\\front\\global-suicides_GUI\\global-suicides_Graph2.svelte";
 
-    // (107:2) <Button color="info" on:click="{back}" >
+    // (110:2) <Button color="info" on:click="{back}" >
     function create_default_slot$6(ctx) {
     	let t;
 
@@ -49873,7 +49873,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$6.name,
     		type: "slot",
-    		source: "(107:2) <Button color=\\\"info\\\" on:click=\\\"{back}\\\" >",
+    		source: "(110:2) <Button color=\\\"info\\\" on:click=\\\"{back}\\\" >",
     		ctx
     	});
 
@@ -49926,16 +49926,16 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "El gráfico de pompas muestra la la media de suicidios por cada 100.000 personas en distintos países.            en distintos países.";
     			if (script0.src !== (script0_src_value = "https://d3js.org/d3.v5.min.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$i, 98, 1, 2139);
+    			add_location(script0, file$i, 101, 1, 2203);
     			if (script1.src !== (script1_src_value = "libraries/billboard.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$i, 99, 1, 2195);
+    			add_location(script1, file$i, 102, 1, 2259);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "css/billboard.css");
-    			add_location(link, file$i, 100, 1, 2244);
-    			add_location(head, file$i, 96, 0, 2128);
-    			add_location(h2, file$i, 105, 2, 2319);
-    			add_location(p, file$i, 107, 6, 2411);
-    			add_location(main, file$i, 104, 0, 2309);
+    			add_location(link, file$i, 103, 1, 2308);
+    			add_location(head, file$i, 99, 0, 2192);
+    			add_location(h2, file$i, 108, 2, 2383);
+    			add_location(p, file$i, 110, 6, 2475);
+    			add_location(main, file$i, 107, 0, 2373);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -50007,7 +50007,7 @@ var app = (function () {
     		let MyData = await resData.json();
 
     		let countries = Array.from(new Set(MyData.map(d => {
-    				return d.country + d.year;
+    				return d.country + " " + d.year;
     			})));
 
     		let mens = Array.from(new Set(MyData.map(d => {
@@ -50048,10 +50048,11 @@ var app = (function () {
     			bubble: { maxR: 50 },
     			axis: {
     				x: {
+    					tick: { rotate: 30 },
     					type: "category",
     					max: data_mens.length - 2
     				},
-    				y: { max: 60 }
+    				y: { min: -5, max: 50 }
     			},
     			bindto: "#bubbleChart"
     		});
@@ -50072,7 +50073,7 @@ var app = (function () {
       columns: []
     });
     }, 3000);
-    }*/ //
+    */
 
     	loadGraph();
     	const writable_props = [];

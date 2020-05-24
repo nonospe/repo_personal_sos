@@ -11,7 +11,7 @@
     const resData = await fetch(URL_BASE);
     let MyData = await resData.json();
     
-    let countries = Array.from(new Set(MyData.map((d) => {return d.country+d.year;})));
+    let countries = Array.from(new Set(MyData.map((d) => {return d.country+" "+d.year;})));
     let mens = Array.from(new Set(MyData.map((d) => {return d.men;})));
     let womens = Array.from(new Set(MyData.map((d) => {return d.women;})));
     let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
@@ -52,11 +52,15 @@
     },
     axis: {
       x: {
+        tick: {
+          rotate: 30
+        },
         type: "category",
         max: data_mens.length-2
       },
       y: {
-        max: 60
+        min: -5,
+        max: 50
       }
     },
     bindto: "#bubbleChart"
@@ -79,9 +83,8 @@
       columns: []
     });
     }, 3000);
-    }*/
+    */
     
-    //
   }
 
   loadGraph();
