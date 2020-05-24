@@ -49853,7 +49853,7 @@ var app = (function () {
     const { console: console_1$8 } = globals;
     const file$i = "src\\front\\global-suicides_GUI\\global-suicides_Graph2.svelte";
 
-    // (113:2) <Button color="info" on:click="{back}" >
+    // (107:2) <Button color="info" on:click="{back}" >
     function create_default_slot$6(ctx) {
     	let t;
 
@@ -49873,7 +49873,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$6.name,
     		type: "slot",
-    		source: "(113:2) <Button color=\\\"info\\\" on:click=\\\"{back}\\\" >",
+    		source: "(107:2) <Button color=\\\"info\\\" on:click=\\\"{back}\\\" >",
     		ctx
     	});
 
@@ -49906,7 +49906,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button.$on("click", /*back*/ ctx[0]);
+    	button.$on("click", back);
 
     	const block = {
     		c: function create() {
@@ -49926,16 +49926,16 @@ var app = (function () {
     			p = element("p");
     			p.textContent = "El gráfico de pompas muestra la la media de suicidios por cada 100.000 personas en distintos países.            en distintos países.";
     			if (script0.src !== (script0_src_value = "https://d3js.org/d3.v5.min.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$i, 104, 1, 2234);
+    			add_location(script0, file$i, 98, 1, 2139);
     			if (script1.src !== (script1_src_value = "libraries/billboard.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$i, 105, 1, 2290);
+    			add_location(script1, file$i, 99, 1, 2195);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "css/billboard.css");
-    			add_location(link, file$i, 106, 1, 2339);
-    			add_location(head, file$i, 102, 0, 2223);
-    			add_location(h2, file$i, 111, 2, 2414);
-    			add_location(p, file$i, 113, 6, 2506);
-    			add_location(main, file$i, 110, 0, 2404);
+    			add_location(link, file$i, 100, 1, 2244);
+    			add_location(head, file$i, 96, 0, 2128);
+    			add_location(h2, file$i, 105, 2, 2319);
+    			add_location(p, file$i, 107, 6, 2411);
+    			add_location(main, file$i, 104, 0, 2309);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -49959,7 +49959,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 64) {
+    			if (dirty & /*$$scope*/ 2) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -49995,18 +49995,19 @@ var app = (function () {
 
     const URL_BASE$4 = "api/v2/global-suicides";
 
-    function instance$j($$self, $$props, $$invalidate) {
-    	let data_countries = [];
-    	let data_mens = [];
-    	let data_womens = [];
-    	let data_averages = [];
+    function back() {
+    	console.log("entra en back");
+    	window.location.href = "/#/global-suicides_API";
+    	location.reload();
+    }
 
+    function instance$j($$self, $$props, $$invalidate) {
     	async function loadGraph() {
     		const resData = await fetch(URL_BASE$4);
     		let MyData = await resData.json();
 
     		let countries = Array.from(new Set(MyData.map(d => {
-    				return d.country + " " + d.year;
+    				return d.country + d.year;
     			})));
 
     		let mens = Array.from(new Set(MyData.map(d => {
@@ -50021,6 +50022,10 @@ var app = (function () {
     				return d.average;
     			})));
 
+    		let data_countries = [];
+    		let data_mens = [];
+    		let data_womens = [];
+    		let data_averages = [];
     		data_countries[0] = "x";
     		data_mens[0] = "Hombres";
     		data_womens[0] = "Mujeres";
@@ -50070,17 +50075,6 @@ var app = (function () {
     }*/ //
 
     	loadGraph();
-
-    	function back() {
-    		data_countries = [];
-    		data_mens = [];
-    		data_womens = [];
-    		data_averages = [];
-    		console.log("entra en back");
-    		window.location.href = "/#/global-suicides_API";
-    		location.reload();
-    	}
-
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -50095,26 +50089,11 @@ var app = (function () {
     		pop,
     		bb,
     		URL_BASE: URL_BASE$4,
-    		data_countries,
-    		data_mens,
-    		data_womens,
-    		data_averages,
     		loadGraph,
     		back
     	});
 
-    	$$self.$inject_state = $$props => {
-    		if ("data_countries" in $$props) data_countries = $$props.data_countries;
-    		if ("data_mens" in $$props) data_mens = $$props.data_mens;
-    		if ("data_womens" in $$props) data_womens = $$props.data_womens;
-    		if ("data_averages" in $$props) data_averages = $$props.data_averages;
-    	};
-
-    	if ($$props && "$$inject" in $$props) {
-    		$$self.$inject_state($$props.$$inject);
-    	}
-
-    	return [back];
+    	return [];
     }
 
     class Global_suicides_Graph2 extends SvelteComponentDev {

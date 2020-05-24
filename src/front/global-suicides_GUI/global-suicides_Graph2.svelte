@@ -5,23 +5,21 @@
   import bb from "billboard.js/dist/billboard.pkgd";
 
   const URL_BASE = "api/v2/global-suicides";
-
-  let data_countries = [];
-  let data_mens = [];
-  let data_womens = [];
-  let data_averages = [];
   
   async function loadGraph(){
   
     const resData = await fetch(URL_BASE);
     let MyData = await resData.json();
     
-    let countries = Array.from(new Set(MyData.map((d) => {return d.country+" "+d.year;})));
+    let countries = Array.from(new Set(MyData.map((d) => {return d.country+d.year;})));
     let mens = Array.from(new Set(MyData.map((d) => {return d.men;})));
     let womens = Array.from(new Set(MyData.map((d) => {return d.women;})));
     let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
 
-
+    let data_countries = [];
+    let data_mens = [];
+    let data_womens = [];
+    let data_averages = [];
 
     data_countries[0]="x";
     data_mens[0]="Hombres";
@@ -89,10 +87,6 @@
   loadGraph();
 
   function back(){
-    data_countries = [];
-    data_mens = [];
-    data_womens = [];
-    data_averages = [];
     console.log("entra en back");
     window.location.href= "/#/global-suicides_API";
     location.reload();
