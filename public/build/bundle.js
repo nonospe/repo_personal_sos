@@ -49853,7 +49853,7 @@ var app = (function () {
     const { console: console_1$8 } = globals;
     const file$i = "src\\front\\global-suicides_GUI\\global-suicides_Graph2.svelte";
 
-    // (110:2) <Button color="info" on:click="{back}" >
+    // (110:2) <Button color="info" on:click="{pop}" >
     function create_default_slot$6(ctx) {
     	let t;
 
@@ -49873,7 +49873,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$6.name,
     		type: "slot",
-    		source: "(110:2) <Button color=\\\"info\\\" on:click=\\\"{back}\\\" >",
+    		source: "(110:2) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\" >",
     		ctx
     	});
 
@@ -49906,7 +49906,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	button.$on("click", back);
+    	button.$on("click", pop);
 
     	const block = {
     		c: function create() {
@@ -49934,7 +49934,7 @@ var app = (function () {
     			add_location(link, file$i, 103, 1, 2308);
     			add_location(head, file$i, 99, 0, 2192);
     			add_location(h2, file$i, 108, 2, 2383);
-    			add_location(p, file$i, 110, 6, 2475);
+    			add_location(p, file$i, 110, 6, 2474);
     			add_location(main, file$i, 107, 0, 2373);
     		},
     		l: function claim(nodes) {
