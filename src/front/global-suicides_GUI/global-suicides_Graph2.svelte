@@ -107,7 +107,7 @@
 
 <main>
   <h2>Gráfico Billboard</h2>
-  <Button color="info" on:click="{pop}" >Atrás</Button>
+  <Button color="info" on:click="{back}" >Atrás</Button>
       <p>
           El gráfico de pompas muestra la la media de suicidios por cada 100.000 personas en distintos países.            en distintos países.
       </p>

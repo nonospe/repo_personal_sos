@@ -4,6 +4,8 @@ module.exports = function init(app){
 const dataStore = require("nedb");
 const path = require("path");
 const dbGSuicides = path.join(__dirname,"./suicides.db");
+const request = require('request');
+const express = require("express");
 
 	const globalSuicidesDb = new dataStore({							//objeto
 		filename: dbGSuicides,
@@ -154,10 +156,49 @@ const dbGSuicides = path.join(__dirname,"./suicides.db");
 ];
 	
 //=============================================================
-//======================ZONA TEST==============================
+//======================ZONA INTEGRACIONES=====================
 //=============================================================
-	
-	
+
+
+const URL_02 = "https://sos1920-02.herokuapp.com";
+app.use("/api/v2/rural-tourism-stats", function(req, res) {
+	console.log("GET API MARTA");
+	var url = URL_02 + req.baseUrl + req.url;
+	console.log("URL_MARTA: "+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));
+
+const URL_01 = "https://sos1920-01.herokuapp.com";
+app.use("/api/v2/poverty-stats", function(req, res) {
+	console.log("GET API ANGELA");
+	var url = URL_01 + req.baseUrl + req.url;
+	console.log("URL_ANGELA: "+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));
+
+const URL_26 = "http://sos1920-26.herokuapp.com";
+app.use("/api/v2/goalscorers", function(req, res) {
+	console.log("GET API GOLEADORES");
+	var url = URL_26 + req.baseUrl + req.url;
+	console.log("URL_GOLEADORES: "+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));
+
+const URL_22 = "https://sos1920-22.herokuapp.com";
+app.use("/api/v1/og-basket-stats/", function(req, res) {
+	console.log("GET API CASTO");
+	var url = URL_22 + req.baseUrl + req.url;
+	console.log("URL_CASTO:"+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));
 
 //=============================================================
 //=============================L08==============================

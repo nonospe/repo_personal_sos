@@ -26,6 +26,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "nedb": "^1.8.0",
+    "request": "^2.88.2",
     "svelte-spa-router": "^2.1.0",
     "sveltestrap": "^3.3.3"
   }

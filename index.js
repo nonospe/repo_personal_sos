@@ -9,9 +9,10 @@ const cors = require("cors");
 
 var app = express();//
 
-app.use(cors());
+
 
 app.use(bodyParser.json());   //
+app.use(cors());
 
 marriagesAPI(app);   
 
