@@ -286,6 +286,10 @@ function toGraph2(){
 	window.location.href= "/#/suicidesGraph2";
 }
 
+function toHome(){
+	window.location.href= "/#/";
+}
+
 </script>
 
 <main>
@@ -306,6 +310,7 @@ function toGraph2(){
 	<Button color="danger" on:click="{deleteSuicides}">Borrar API</Button>
 	<Button color="primary" on:click="{toGraph1}">Grafico1</Button>
 	<Button color="primary" on:click="{toGraph2}">Grafico2</Button>
+	<Button color="success" on:click="{toHome}">Inicio</Button>
 	<p></p>
 	<FormGroup>
 			<Label for="exampleEmail">Buscar País:</Label>
