@@ -3,16 +3,13 @@ const bodyParser = require("body-parser"); //
 //const marriagesAPI = require("src/back/marriagesAPI");  
 const path = require ("path");
 const marriagesAPI =require(path.join(__dirname,"./src/back/marriagesAPI"));
-
 const globalSuicidesAPI = require(path.join(__dirname,"./src/back/global-suicides_API"));
-
 const globalDivorcesAPI = require(path.join(__dirname,"./src/back/divorcesAPI"));
-
-
-
-
+const cors = require("cors");
 
 var app = express();//
+
+app.use(cors());
 
 app.use(bodyParser.json());   //
 
