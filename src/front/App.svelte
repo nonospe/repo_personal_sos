@@ -12,6 +12,9 @@
 	import suicidesGraph from './global-suicides_GUI/global-suicides_Graph.svelte';
 	import suicidesGraph2 from './global-suicides_GUI/global-suicides_Graph2.svelte';
 	import integrations_suicides from './global-suicides_GUI/integrations_suicides.svelte';
+	import integrations_suicides2 from './global-suicides_GUI/integrations_suicides2.svelte';
+	import integrations_suicides3 from './global-suicides_GUI/integrations_suicides3.svelte';
+	import integrations_suicides4 from './global-suicides_GUI/integrations_suicides4.svelte';
 	
 	import globalDivorces from './DivorcesGUI/App.svelte';  
 	import EditDivorce from './DivorcesGUI/EditDivorce.svelte';
@@ -29,7 +32,10 @@
 		"/globalDivorcesAPI":globalDivorces,
 		"/suicidesGraph": suicidesGraph, 
 		"/suicidesGraph2": suicidesGraph2,
-		"/integrations_suicides": integrations_suicides, 
+		"/integrations_suicides": integrations_suicides,
+		"/integrations_suicides2": integrations_suicides2,
+		"/integrations_suicides3": integrations_suicides3,
+		"/integrations_suicides4": integrations_suicides4,
 		
 		"*": NotFound
 	};

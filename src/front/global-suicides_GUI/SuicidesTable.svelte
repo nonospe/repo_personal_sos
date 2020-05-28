@@ -290,8 +290,17 @@ function toHome(){
 	window.location.href= "/#/";
 }
 
-function toIntegrations(){
+function toIntG02(){
 	window.location.href= "/#/integrations_suicides";
+}
+function toIntG01(){
+	window.location.href= "/#/integrations_suicides2";
+}
+function toIntG26(){
+	window.location.href= "/#/integrations_suicides3";
+}
+function toIntG22(){
+	window.location.href= "/#/integrations_suicides4";
 }
 
 </script>
@@ -315,7 +324,10 @@ function toIntegrations(){
 	<Button color="primary" on:click="{toGraph1}">Grafico1</Button>
 	<Button color="primary" on:click="{toGraph2}">Grafico2</Button>
 	<Button color="success" on:click="{toHome}">Inicio</Button>
-	<Button color="dark" on:click="{toIntegrations}">Integraciones</Button>
+	<Button color="dark" on:click="{toIntG02}">Int. G02</Button>
+	<Button color="dark" on:click="{toIntG01}">Int. G01</Button>
+	<Button color="dark" on:click="{toIntG26}">Int. G26</Button>
+	<Button color="dark" on:click="{toIntG22}">Int. G22</Button>
 	<p></p>
 	<FormGroup>
 			<Label for="exampleEmail">Buscar País:</Label>
