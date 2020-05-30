@@ -154,6 +154,33 @@ const express = require("express");
 		average: 11.3
 	}
 ];
+//=============================================================
+//======================ZONA INTEGRACIONES EXTERNAS=====================
+//=============================================================
+
+//https://www.etnassoft.com/api/v1/get/?category=libros_programacion&criteria=most_viewed
+//https://www.etnassoft.com/api/v1/get/?id=589&callback=?
+/*const URL_01_EXT = "https://www.etnassoft.com";
+app.use("/api/v1/get/?category=libros_programacion&criteria=most_viewed", function(req, res) {
+	console.log("GET API Programacion");
+	var url = URL_01_EXT + req.baseUrl + req.url;
+	console.log("URL_Programacion: "+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));*/
+
+/*
+const URL_02_EXT = "https://sos1920-02.herokuapp.com";
+app.use("/api/v2/rural-tourism-stats", function(req, res) {
+	console.log("GET API MARTA");
+	var url = URL_02 + req.baseUrl + req.url;
+	console.log("URL_MARTA: "+url);
+	console.log('piped: ' + req.baseUrl + req.url);
+	req.pipe(request(url)).pipe(res);
+});
+app.use(express.static('.'));*/
+
 	
 //=============================================================
 //======================ZONA INTEGRACIONES=====================
