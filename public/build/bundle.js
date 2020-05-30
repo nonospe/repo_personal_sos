@@ -1472,6 +1472,10 @@ var app = (function () {
     	let button1;
     	let t7;
     	let button2;
+    	let t9;
+    	let button3;
+    	let t11;
+    	let button4;
 
     	const block = {
     		c: function create() {
@@ -1493,6 +1497,12 @@ var app = (function () {
     			t7 = space();
     			button2 = element("button");
     			button2.textContent = "API de Suicidios Globales";
+    			t9 = space();
+    			button3 = element("button");
+    			button3.textContent = "Integraciones";
+    			t11 = space();
+    			button4 = element("button");
+    			button4.textContent = "Gráfico Grupo";
     			add_location(h2, file, 2, 1, 12);
     			add_location(p0, file, 5, 1, 73);
     			add_location(p1, file, 6, 1, 83);
@@ -1508,6 +1518,14 @@ var app = (function () {
     			attr_dev(button2, "class", "btn btn-outline-success");
     			attr_dev(button2, "onclick", "window.location.href='#/global-suicides_API'");
     			add_location(button2, file, 11, 2, 422);
+    			attr_dev(button3, "type", "button");
+    			attr_dev(button3, "class", "btn btn-primary");
+    			attr_dev(button3, "onclick", "window.location.href='#/integrations'");
+    			add_location(button3, file, 12, 2, 573);
+    			attr_dev(button4, "type", "button");
+    			attr_dev(button4, "class", "btn btn-secondary");
+    			attr_dev(button4, "onclick", "window.location.href='#/analytics'");
+    			add_location(button4, file, 13, 2, 696);
     			attr_dev(div, "class", "div-home");
     			add_location(div, file, 8, 1, 95);
     			add_location(body, file, 3, 1, 62);
@@ -1531,6 +1549,10 @@ var app = (function () {
     			append_dev(div, button1);
     			append_dev(div, t7);
     			append_dev(div, button2);
+    			append_dev(div, t9);
+    			append_dev(div, button3);
+    			append_dev(div, t11);
+    			append_dev(div, button4);
     		},
     		p: noop,
     		i: noop,
@@ -15543,16 +15565,17 @@ var app = (function () {
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
     			add_location(script3, file$j, 89, 4, 2226);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
+    			script4.defer = true;
     			add_location(script4, file$j, 90, 4, 2306);
-    			add_location(h2, file$j, 94, 4, 2436);
+    			add_location(h2, file$j, 94, 4, 2442);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-pgwtr9");
-    			add_location(div, file$j, 97, 8, 2570);
+    			add_location(div, file$j, 97, 8, 2576);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$j, 98, 8, 2606);
+    			add_location(p, file$j, 98, 8, 2612);
     			attr_dev(figure, "class", "highcharts-figure svelte-pgwtr9");
-    			add_location(figure, file$j, 96, 4, 2526);
-    			add_location(main, file$j, 93, 0, 2424);
+    			add_location(figure, file$j, 96, 4, 2532);
+    			add_location(main, file$j, 93, 0, 2430);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -51102,7 +51125,7 @@ var app = (function () {
     			t0 = space();
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "ntegraciones con SOS1920-G02";
+    			h2.textContent = "Integración con SOS1920-02";
     			t2 = space();
     			create_component(button.$$.fragment);
     			t3 = space();
@@ -51124,11 +51147,11 @@ var app = (function () {
     			add_location(h2, file$l, 97, 4, 2870);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-pgwtr9");
-    			add_location(div, file$l, 100, 8, 3015);
+    			add_location(div, file$l, 100, 8, 3013);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$l, 101, 8, 3051);
+    			add_location(p, file$l, 101, 8, 3049);
     			attr_dev(figure, "class", "highcharts-figure svelte-pgwtr9");
-    			add_location(figure, file$l, 99, 4, 2971);
+    			add_location(figure, file$l, 99, 4, 2969);
     			add_location(main, file$l, 96, 0, 2858);
     		},
     		l: function claim(nodes) {
@@ -51368,7 +51391,7 @@ var app = (function () {
     			t0 = space();
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "Integraciones con SOS1920-G01";
+    			h2.textContent = "Integración con SOS1920-01";
     			t2 = space();
     			create_component(button.$$.fragment);
     			t3 = space();
@@ -51395,11 +51418,11 @@ var app = (function () {
     			add_location(h2, file$m, 104, 8, 3099);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-1mpz8tj");
-    			add_location(div, file$m, 107, 12, 3257);
+    			add_location(div, file$m, 107, 12, 3254);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$m, 108, 12, 3297);
+    			add_location(p, file$m, 108, 12, 3294);
     			attr_dev(figure, "class", "highcharts-figure svelte-1mpz8tj");
-    			add_location(figure, file$m, 106, 8, 3209);
+    			add_location(figure, file$m, 106, 8, 3206);
     			add_location(main, file$m, 103, 4, 3083);
     		},
     		l: function claim(nodes) {
@@ -51642,7 +51665,7 @@ var app = (function () {
     			t0 = space();
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "Integraciones con SOS1920-G26";
+    			h2.textContent = "Integración con SOS1920-26";
     			t2 = space();
     			create_component(button.$$.fragment);
     			t3 = space();
@@ -51669,11 +51692,11 @@ var app = (function () {
     			add_location(h2, file$n, 104, 8, 3130);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-1mpz8tj");
-    			add_location(div, file$n, 107, 12, 3288);
+    			add_location(div, file$n, 107, 12, 3285);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$n, 108, 12, 3328);
+    			add_location(p, file$n, 108, 12, 3325);
     			attr_dev(figure, "class", "highcharts-figure svelte-1mpz8tj");
-    			add_location(figure, file$n, 106, 8, 3240);
+    			add_location(figure, file$n, 106, 8, 3237);
     			add_location(main, file$n, 103, 4, 3114);
     		},
     		l: function claim(nodes) {
@@ -51916,7 +51939,7 @@ var app = (function () {
     			t0 = space();
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "Gráfico highchart";
+    			h2.textContent = "Integración con SOS1920-22";
     			t2 = space();
     			create_component(button.$$.fragment);
     			t3 = space();
@@ -51938,11 +51961,11 @@ var app = (function () {
     			add_location(h2, file$o, 101, 8, 3070);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-1mpz8tj");
-    			add_location(div, file$o, 104, 12, 3216);
+    			add_location(div, file$o, 104, 12, 3225);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$o, 105, 12, 3256);
+    			add_location(p, file$o, 105, 12, 3265);
     			attr_dev(figure, "class", "highcharts-figure svelte-1mpz8tj");
-    			add_location(figure, file$o, 103, 8, 3168);
+    			add_location(figure, file$o, 103, 8, 3177);
     			add_location(main, file$o, 100, 4, 3054);
     		},
     		l: function claim(nodes) {
@@ -52109,10 +52132,369 @@ var app = (function () {
     	}
     }
 
+    /* src\front\integrations.svelte generated by Svelte v3.22.2 */
+    const file$p = "src\\front\\integrations.svelte";
+
+    // (11:4) <Button color="info" on:click="{pop}">
+    function create_default_slot$b(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Atrás");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$b.name,
+    		type: "slot",
+    		source: "(11:4) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$q(ctx) {
+    	let main;
+    	let h2;
+    	let t1;
+    	let t2;
+    	let body;
+    	let p0;
+    	let t3;
+    	let p1;
+    	let t4;
+    	let p2;
+    	let t5;
+    	let h4;
+    	let t7;
+    	let div;
+    	let button1;
+    	let t9;
+    	let button2;
+    	let t11;
+    	let button3;
+    	let t13;
+    	let button4;
+    	let current;
+
+    	const button0 = new Button({
+    			props: {
+    				color: "info",
+    				$$slots: { default: [create_default_slot$b] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button0.$on("click", pop);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h2 = element("h2");
+    			h2.textContent = "Integraciones del grupo SOS1920-10";
+    			t1 = space();
+    			create_component(button0.$$.fragment);
+    			t2 = space();
+    			body = element("body");
+    			p0 = element("p");
+    			t3 = space();
+    			p1 = element("p");
+    			t4 = space();
+    			p2 = element("p");
+    			t5 = space();
+    			h4 = element("h4");
+    			h4.textContent = "Integraciones de Suicidios Globales";
+    			t7 = space();
+    			div = element("div");
+    			button1 = element("button");
+    			button1.textContent = "Int. G02";
+    			t9 = space();
+    			button2 = element("button");
+    			button2.textContent = "Int. G01";
+    			t11 = space();
+    			button3 = element("button");
+    			button3.textContent = "Int. G26";
+    			t13 = space();
+    			button4 = element("button");
+    			button4.textContent = "Int. G22";
+    			add_location(h2, file$p, 9, 4, 138);
+    			add_location(p0, file$p, 13, 1, 253);
+    			add_location(p1, file$p, 14, 4, 266);
+    			add_location(p2, file$p, 15, 4, 279);
+    			add_location(h4, file$p, 16, 4, 292);
+    			attr_dev(button1, "type", "button");
+    			attr_dev(button1, "class", "btn btn-primary");
+    			attr_dev(button1, "onclick", "window.location.href='#/integrations_suicides'");
+    			add_location(button1, file$p, 18, 2, 365);
+    			attr_dev(button2, "type", "button");
+    			attr_dev(button2, "class", "btn btn-primary");
+    			attr_dev(button2, "onclick", "window.location.href='#/integrations_suicides2'");
+    			add_location(button2, file$p, 19, 2, 492);
+    			attr_dev(button3, "type", "button");
+    			attr_dev(button3, "class", "btn btn-primary");
+    			attr_dev(button3, "onclick", "window.location.href='#/integrations_suicides3'");
+    			add_location(button3, file$p, 20, 8, 626);
+    			attr_dev(button4, "type", "button");
+    			attr_dev(button4, "class", "btn btn-primary");
+    			attr_dev(button4, "onclick", "window.location.href='#/integrations_suicides4'");
+    			add_location(button4, file$p, 21, 8, 760);
+    			attr_dev(div, "class", "div-home");
+    			add_location(div, file$p, 17, 1, 339);
+    			add_location(body, file$p, 11, 1, 242);
+    			add_location(main, file$p, 7, 0, 123);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h2);
+    			append_dev(main, t1);
+    			mount_component(button0, main, null);
+    			append_dev(main, t2);
+    			append_dev(main, body);
+    			append_dev(body, p0);
+    			append_dev(body, t3);
+    			append_dev(body, p1);
+    			append_dev(body, t4);
+    			append_dev(body, p2);
+    			append_dev(body, t5);
+    			append_dev(body, h4);
+    			append_dev(body, t7);
+    			append_dev(body, div);
+    			append_dev(div, button1);
+    			append_dev(div, t9);
+    			append_dev(div, button2);
+    			append_dev(div, t11);
+    			append_dev(div, button3);
+    			append_dev(div, t13);
+    			append_dev(div, button4);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const button0_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button0_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button0.$set(button0_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button0.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button0.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(button0);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$q.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$q($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Integrations> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Integrations", $$slots, []);
+    	$$self.$capture_state = () => ({ Button, pop });
+    	return [];
+    }
+
+    class Integrations extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$q, create_fragment$q, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Integrations",
+    			options,
+    			id: create_fragment$q.name
+    		});
+    	}
+    }
+
+    /* src\front\analytics.svelte generated by Svelte v3.22.2 */
+    const file$q = "src\\front\\analytics.svelte";
+
+    // (11:7) <Button color="info" on:click="{pop}">
+    function create_default_slot$c(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Atrás");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$c.name,
+    		type: "slot",
+    		source: "(11:7) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$r(ctx) {
+    	let main;
+    	let h2;
+    	let t1;
+    	let t2;
+    	let body;
+    	let p;
+    	let t3;
+    	let h4;
+    	let current;
+
+    	const button = new Button({
+    			props: {
+    				color: "info",
+    				$$slots: { default: [create_default_slot$c] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("click", pop);
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h2 = element("h2");
+    			h2.textContent = "Integración común del grupo SOS1920-10";
+    			t1 = space();
+    			create_component(button.$$.fragment);
+    			t2 = space();
+    			body = element("body");
+    			p = element("p");
+    			t3 = space();
+    			h4 = element("h4");
+    			h4.textContent = "Gráfica con datos del grupo 10";
+    			add_location(h2, file$q, 9, 7, 165);
+    			add_location(p, file$q, 13, 7, 302);
+    			add_location(h4, file$q, 15, 7, 320);
+    			add_location(body, file$q, 11, 7, 282);
+    			add_location(main, file$q, 7, 3, 141);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h2);
+    			append_dev(main, t1);
+    			mount_component(button, main, null);
+    			append_dev(main, t2);
+    			append_dev(main, body);
+    			append_dev(body, p);
+    			append_dev(body, t3);
+    			append_dev(body, h4);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 1) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(button);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$r.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$r($$self, $$props, $$invalidate) {
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Analytics> was created with unknown prop '${key}'`);
+    	});
+
+    	let { $$slots = {}, $$scope } = $$props;
+    	validate_slots("Analytics", $$slots, []);
+    	$$self.$capture_state = () => ({ Button, pop });
+    	return [];
+    }
+
+    class Analytics extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$r, create_fragment$r, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Analytics",
+    			options,
+    			id: create_fragment$r.name
+    		});
+    	}
+    }
+
     /* src\front\DivorcesGUI\DivorcesTable.svelte generated by Svelte v3.22.2 */
 
     const { console: console_1$d } = globals;
-    const file$p = "src\\front\\DivorcesGUI\\DivorcesTable.svelte";
+    const file$r = "src\\front\\DivorcesGUI\\DivorcesTable.svelte";
 
     function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
@@ -52386,7 +52768,7 @@ var app = (function () {
     			i = element("i");
     			t = text(" Buscar");
     			attr_dev(i, "class", "fas fa-search");
-    			add_location(i, file$p, 267, 121, 8337);
+    			add_location(i, file$r, 267, 121, 8337);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -52531,14 +52913,14 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			t11 = space();
     			attr_dev(a, "href", a_href_value = "#/globalDivorcesAPI/" + /*d*/ ctx[24].country + "/" + /*d*/ ctx[24].year);
-    			add_location(a, file$p, 293, 12, 9145);
-    			add_location(td0, file$p, 293, 6, 9139);
-    			add_location(td1, file$p, 294, 6, 9226);
-    			add_location(td2, file$p, 295, 6, 9251);
-    			add_location(td3, file$p, 296, 6, 9279);
-    			add_location(td4, file$p, 297, 6, 9311);
-    			add_location(td5, file$p, 298, 6, 9341);
-    			add_location(tr, file$p, 292, 5, 9127);
+    			add_location(a, file$r, 293, 12, 9145);
+    			add_location(td0, file$r, 293, 6, 9139);
+    			add_location(td1, file$r, 294, 6, 9226);
+    			add_location(td2, file$r, 295, 6, 9251);
+    			add_location(td3, file$r, 296, 6, 9279);
+    			add_location(td4, file$r, 297, 6, 9311);
+    			add_location(td5, file$r, 298, 6, 9341);
+    			add_location(tr, file$r, 292, 5, 9127);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -52720,31 +53102,31 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(th0, file$p, 273, 5, 8466);
-    			add_location(th1, file$p, 274, 5, 8486);
-    			add_location(th2, file$p, 275, 5, 8505);
-    			add_location(th3, file$p, 276, 5, 8530);
-    			add_location(th4, file$p, 277, 5, 8556);
-    			add_location(th5, file$p, 278, 5, 8581);
-    			add_location(tr0, file$p, 272, 4, 8455);
-    			add_location(thead, file$p, 271, 3, 8442);
-    			add_location(input0, file$p, 284, 9, 8656);
-    			add_location(td0, file$p, 284, 5, 8652);
+    			add_location(th0, file$r, 273, 5, 8466);
+    			add_location(th1, file$r, 274, 5, 8486);
+    			add_location(th2, file$r, 275, 5, 8505);
+    			add_location(th3, file$r, 276, 5, 8530);
+    			add_location(th4, file$r, 277, 5, 8556);
+    			add_location(th5, file$r, 278, 5, 8581);
+    			add_location(tr0, file$r, 272, 4, 8455);
+    			add_location(thead, file$r, 271, 3, 8442);
+    			add_location(input0, file$r, 284, 9, 8656);
+    			add_location(td0, file$r, 284, 5, 8652);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$p, 285, 9, 8713);
-    			add_location(td1, file$p, 285, 5, 8709);
+    			add_location(input1, file$r, 285, 9, 8713);
+    			add_location(td1, file$r, 285, 5, 8709);
     			attr_dev(input2, "type", "number");
-    			add_location(input2, file$p, 286, 9, 8781);
-    			add_location(td2, file$p, 286, 5, 8777);
+    			add_location(input2, file$r, 286, 9, 8781);
+    			add_location(td2, file$r, 286, 5, 8777);
     			attr_dev(input3, "type", "number");
-    			add_location(input3, file$p, 287, 9, 8852);
-    			add_location(td3, file$p, 287, 5, 8848);
+    			add_location(input3, file$r, 287, 9, 8852);
+    			add_location(td3, file$r, 287, 5, 8848);
     			attr_dev(input4, "type", "number");
-    			add_location(input4, file$p, 288, 9, 8927);
-    			add_location(td4, file$p, 288, 5, 8923);
-    			add_location(td5, file$p, 289, 5, 8996);
-    			add_location(tr1, file$p, 283, 4, 8641);
-    			add_location(tbody, file$p, 282, 3, 8628);
+    			add_location(input4, file$r, 288, 9, 8927);
+    			add_location(td4, file$r, 288, 5, 8923);
+    			add_location(td5, file$r, 289, 5, 8996);
+    			add_location(tr1, file$r, 283, 4, 8641);
+    			add_location(tbody, file$r, 282, 3, 8628);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -52950,7 +53332,7 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			create_component(pagination.$$.fragment);
-    			add_location(div, file$p, 308, 1, 9548);
+    			add_location(div, file$r, 308, 1, 9548);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -53785,7 +54167,7 @@ var app = (function () {
     				style: "float: left; margin-left: 20px;",
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$b] },
+    				$$slots: { default: [create_default_slot$d] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -53841,7 +54223,7 @@ var app = (function () {
     }
 
     // (350:1) <Button style="float: left; margin-left: 20px;" outline  color="secondary" on:click={pop} on:click={showPagination=true}>
-    function create_default_slot$b(ctx) {
+    function create_default_slot$d(ctx) {
     	let t;
 
     	const block = {
@@ -53858,7 +54240,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$b.name,
+    		id: create_default_slot$d.name,
     		type: "slot",
     		source: "(350:1) <Button style=\\\"float: left; margin-left: 20px;\\\" outline  color=\\\"secondary\\\" on:click={pop} on:click={showPagination=true}>",
     		ctx
@@ -53867,7 +54249,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$q(ctx) {
+    function create_fragment$s(ctx) {
     	let main;
     	let div0;
     	let t0;
@@ -53947,10 +54329,10 @@ var app = (function () {
     			attr_dev(div0, "role", "alert");
     			attr_dev(div0, "id", "div_alert");
     			set_style(div0, "display", "none");
-    			add_location(div0, file$p, 253, 1, 7884);
-    			add_location(div1, file$p, 338, 1, 10578);
+    			add_location(div0, file$r, 253, 1, 7884);
+    			add_location(div1, file$r, 338, 1, 10578);
     			set_style(main, "padding", "10px");
-    			add_location(main, file$p, 252, 0, 7850);
+    			add_location(main, file$r, 252, 0, 7850);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -54107,7 +54489,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$q.name,
+    		id: create_fragment$s.name,
     		type: "component",
     		source: "",
     		ctx
@@ -54189,7 +54571,7 @@ var app = (function () {
     	}
     }
 
-    function instance$q($$self, $$props, $$invalidate) {
+    function instance$s($$self, $$props, $$invalidate) {
     	let currentCountry = "";
     	let showPagination = true;
     	let divorces = [];
@@ -54447,21 +54829,21 @@ var app = (function () {
     class DivorcesTable extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$q, create_fragment$q, safe_not_equal, {});
+    		init(this, options, instance$s, create_fragment$s, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "DivorcesTable",
     			options,
-    			id: create_fragment$q.name
+    			id: create_fragment$s.name
     		});
     	}
     }
 
     /* src\front\DivorcesGUI\App.svelte generated by Svelte v3.22.2 */
-    const file$q = "src\\front\\DivorcesGUI\\App.svelte";
+    const file$s = "src\\front\\DivorcesGUI\\App.svelte";
 
-    function create_fragment$r(ctx) {
+    function create_fragment$t(ctx) {
     	let main;
     	let h1;
     	let t1;
@@ -54477,8 +54859,8 @@ var app = (function () {
     			create_component(divorcestable.$$.fragment);
     			attr_dev(h1, "class", "display-4");
     			set_style(h1, "text-align", "center");
-    			add_location(h1, file$q, 5, 1, 89);
-    			add_location(main, file$q, 4, 0, 80);
+    			add_location(h1, file$s, 5, 1, 89);
+    			add_location(main, file$s, 4, 0, 80);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -54508,7 +54890,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$r.name,
+    		id: create_fragment$t.name,
     		type: "component",
     		source: "",
     		ctx
@@ -54517,7 +54899,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$r($$self, $$props, $$invalidate) {
+    function instance$t($$self, $$props, $$invalidate) {
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -54533,13 +54915,13 @@ var app = (function () {
     class App$2 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$r, create_fragment$r, safe_not_equal, {});
+    		init(this, options, instance$t, create_fragment$t, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$r.name
+    			id: create_fragment$t.name
     		});
     	}
     }
@@ -54547,7 +54929,7 @@ var app = (function () {
     /* src\front\DivorcesGUI\EditDivorce.svelte generated by Svelte v3.22.2 */
 
     const { console: console_1$e } = globals;
-    const file$r = "src\\front\\DivorcesGUI\\EditDivorce.svelte";
+    const file$t = "src\\front\\DivorcesGUI\\EditDivorce.svelte";
 
     // (1:0) <script>    import {          onMount      }
     function create_catch_block$5(ctx) {
@@ -54744,28 +55126,28 @@ var app = (function () {
     			t18 = space();
     			td5 = element("td");
     			create_component(button.$$.fragment);
-    			add_location(th0, file$r, 159, 5, 5142);
-    			add_location(th1, file$r, 160, 5, 5162);
-    			add_location(th2, file$r, 161, 5, 5181);
-    			add_location(th3, file$r, 162, 5, 5206);
-    			add_location(th4, file$r, 163, 5, 5232);
-    			add_location(th5, file$r, 164, 5, 5257);
-    			add_location(tr0, file$r, 158, 4, 5131);
-    			add_location(thead, file$r, 157, 3, 5118);
-    			add_location(td0, file$r, 170, 5, 5328);
-    			add_location(td1, file$r, 171, 5, 5360);
+    			add_location(th0, file$t, 159, 5, 5142);
+    			add_location(th1, file$t, 160, 5, 5162);
+    			add_location(th2, file$t, 161, 5, 5181);
+    			add_location(th3, file$t, 162, 5, 5206);
+    			add_location(th4, file$t, 163, 5, 5232);
+    			add_location(th5, file$t, 164, 5, 5257);
+    			add_location(tr0, file$t, 158, 4, 5131);
+    			add_location(thead, file$t, 157, 3, 5118);
+    			add_location(td0, file$t, 170, 5, 5328);
+    			add_location(td1, file$t, 171, 5, 5360);
     			attr_dev(input0, "type", "number");
-    			add_location(input0, file$r, 172, 9, 5393);
-    			add_location(td2, file$r, 172, 5, 5389);
+    			add_location(input0, file$t, 172, 9, 5393);
+    			add_location(td2, file$t, 172, 5, 5389);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$r, 173, 9, 5460);
-    			add_location(td3, file$r, 173, 5, 5456);
+    			add_location(input1, file$t, 173, 9, 5460);
+    			add_location(td3, file$t, 173, 5, 5456);
     			attr_dev(input2, "type", "number");
-    			add_location(input2, file$r, 174, 24, 5545);
-    			add_location(td4, file$r, 174, 20, 5541);
-    			add_location(td5, file$r, 175, 5, 5610);
-    			add_location(tr1, file$r, 169, 4, 5317);
-    			add_location(tbody, file$r, 168, 3, 5304);
+    			add_location(input2, file$t, 174, 24, 5545);
+    			add_location(td4, file$t, 174, 20, 5541);
+    			add_location(td5, file$t, 175, 5, 5610);
+    			add_location(tr1, file$t, 169, 4, 5317);
+    			add_location(tbody, file$t, 168, 3, 5304);
     		},
     		m: function mount(target, anchor, remount) {
     			insert_dev(target, thead, anchor);
@@ -54908,7 +55290,7 @@ var app = (function () {
     			t0 = text("ERROR: ");
     			t1 = text(/*errorMsg*/ ctx[5]);
     			set_style(p, "color", "red");
-    			add_location(p, file$r, 184, 4, 5786);
+    			add_location(p, file$t, 184, 4, 5786);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -54935,7 +55317,7 @@ var app = (function () {
     }
 
     // (187:4) <Button outline color="secondary" on:click="{pop}">
-    function create_default_slot$c(ctx) {
+    function create_default_slot$e(ctx) {
     	let i;
     	let t;
 
@@ -54944,7 +55326,7 @@ var app = (function () {
     			i = element("i");
     			t = text(" Atrás");
     			attr_dev(i, "class", "fas fa-arrow-circle-left");
-    			add_location(i, file$r, 186, 56, 5898);
+    			add_location(i, file$t, 186, 56, 5898);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -54958,7 +55340,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot$c.name,
+    		id: create_default_slot$e.name,
     		type: "slot",
     		source: "(187:4) <Button outline color=\\\"secondary\\\" on:click=\\\"{pop}\\\">",
     		ctx
@@ -54967,7 +55349,7 @@ var app = (function () {
     	return block;
     }
 
-    function create_fragment$s(ctx) {
+    function create_fragment$u(ctx) {
     	let main;
     	let div;
     	let t0;
@@ -54994,7 +55376,7 @@ var app = (function () {
     			props: {
     				outline: true,
     				color: "secondary",
-    				$$slots: { default: [create_default_slot$c] },
+    				$$slots: { default: [create_default_slot$e] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -55015,8 +55397,8 @@ var app = (function () {
     			attr_dev(div, "role", "alert");
     			attr_dev(div, "id", "div_alert");
     			set_style(div, "display", "none");
-    			add_location(div, file$r, 149, 4, 4922);
-    			add_location(main, file$r, 148, 0, 4910);
+    			add_location(div, file$t, 149, 4, 4922);
+    			add_location(main, file$t, 148, 0, 4910);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -55092,7 +55474,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$s.name,
+    		id: create_fragment$u.name,
     		type: "component",
     		source: "",
     		ctx
@@ -55163,7 +55545,7 @@ var app = (function () {
     	}
     }
 
-    function instance$s($$self, $$props, $$invalidate) {
+    function instance$u($$self, $$props, $$invalidate) {
     	let { params = {} } = $$props;
     	let editDivorce = {};
     	let updatedCountry = "";
@@ -55310,13 +55692,13 @@ var app = (function () {
     class EditDivorce extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$s, create_fragment$s, safe_not_equal, { params: 8 });
+    		init(this, options, instance$u, create_fragment$u, safe_not_equal, { params: 8 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "EditDivorce",
     			options,
-    			id: create_fragment$s.name
+    			id: create_fragment$u.name
     		});
     	}
 
@@ -55330,9 +55712,9 @@ var app = (function () {
     }
 
     /* src\front\App.svelte generated by Svelte v3.22.2 */
-    const file$s = "src\\front\\App.svelte";
+    const file$u = "src\\front\\App.svelte";
 
-    function create_fragment$t(ctx) {
+    function create_fragment$v(ctx) {
     	let main;
     	let current;
 
@@ -55345,7 +55727,7 @@ var app = (function () {
     		c: function create() {
     			main = element("main");
     			create_component(router.$$.fragment);
-    			add_location(main, file$s, 43, 0, 1880);
+    			add_location(main, file$u, 47, 0, 2040);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -55373,7 +55755,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_fragment$t.name,
+    		id: create_fragment$v.name,
     		type: "component",
     		source: "",
     		ctx
@@ -55382,7 +55764,7 @@ var app = (function () {
     	return block;
     }
 
-    function instance$t($$self, $$props, $$invalidate) {
+    function instance$v($$self, $$props, $$invalidate) {
     	const routes = {
     		"/": Home,
     		"/global-marriages/:country/:year": EditMarriage,
@@ -55398,6 +55780,8 @@ var app = (function () {
     		"/integrations_suicides2": Integrations_suicides2,
     		"/integrations_suicides3": Integrations_suicides3,
     		"/integrations_suicides4": Integrations_suicides4,
+    		"/integrations": Integrations,
+    		"/analytics": Analytics,
     		"*": NotFound
     	};
 
@@ -55425,6 +55809,8 @@ var app = (function () {
     		integrations_suicides2: Integrations_suicides2,
     		integrations_suicides3: Integrations_suicides3,
     		integrations_suicides4: Integrations_suicides4,
+    		integrations: Integrations,
+    		analytics: Analytics,
     		globalDivorces: App$2,
     		EditDivorce,
     		routes
@@ -55436,13 +55822,13 @@ var app = (function () {
     class App$3 extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$t, create_fragment$t, safe_not_equal, {});
+    		init(this, options, instance$v, create_fragment$v, safe_not_equal, {});
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
     			tagName: "App",
     			options,
-    			id: create_fragment$t.name
+    			id: create_fragment$v.name
     		});
     	}
     }

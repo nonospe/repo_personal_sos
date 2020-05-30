@@ -15,6 +15,8 @@
 	import integrations_suicides2 from './global-suicides_GUI/integrations_suicides2.svelte';
 	import integrations_suicides3 from './global-suicides_GUI/integrations_suicides3.svelte';
 	import integrations_suicides4 from './global-suicides_GUI/integrations_suicides4.svelte';
+	import integrations from './integrations.svelte';
+	import analytics from './analytics.svelte';
 	
 	import globalDivorces from './DivorcesGUI/App.svelte';  
 	import EditDivorce from './DivorcesGUI/EditDivorce.svelte';
@@ -36,6 +38,8 @@
 		"/integrations_suicides2": integrations_suicides2,
 		"/integrations_suicides3": integrations_suicides3,
 		"/integrations_suicides4": integrations_suicides4,
+		"/integrations": integrations,
+		"/analytics": analytics,
 		
 		"*": NotFound
 	};
