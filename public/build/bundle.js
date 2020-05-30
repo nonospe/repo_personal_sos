@@ -52348,7 +52348,7 @@ var app = (function () {
     const { console: console_1$d } = globals;
     const file$q = "src\\front\\analytics.svelte";
 
-    // (114:7) <Button color="info" on:click="{pop}">
+    // (115:7) <Button color="info" on:click="{pop}">
     function create_default_slot$c(ctx) {
     	let t;
 
@@ -52368,7 +52368,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$c.name,
     		type: "slot",
-    		source: "(114:7) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
+    		source: "(115:7) <Button color=\\\"info\\\" on:click=\\\"{pop}\\\">",
     		ctx
     	});
 
@@ -52376,22 +52376,26 @@ var app = (function () {
     }
 
     function create_fragment$r(ctx) {
+    	let head;
     	let script0;
     	let script0_src_value;
+    	let t0;
     	let script1;
     	let script1_src_value;
+    	let t1;
     	let script2;
     	let script2_src_value;
+    	let t2;
     	let script3;
     	let script3_src_value;
-    	let t0;
+    	let t3;
     	let main;
     	let h2;
-    	let t2;
-    	let t3;
+    	let t5;
+    	let t6;
     	let figure;
     	let div;
-    	let t4;
+    	let t7;
     	let p;
     	let current;
     	let dispose;
@@ -52409,60 +52413,79 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			head = element("head");
     			script0 = element("script");
-    			script1 = element("script");
-    			script2 = element("script");
-    			script3 = element("script");
     			t0 = space();
+    			script1 = element("script");
+    			t1 = space();
+    			script2 = element("script");
+    			t2 = space();
+    			script3 = element("script");
+    			t3 = space();
     			main = element("main");
     			h2 = element("h2");
     			h2.textContent = "Integración común del grupo SOS1920-10";
-    			t2 = space();
+    			t5 = space();
     			create_component(button.$$.fragment);
-    			t3 = space();
+    			t6 = space();
     			figure = element("figure");
     			div = element("div");
-    			t4 = space();
+    			t7 = space();
     			p = element("p");
     			p.textContent = "Esta gráfica muestra datos de todos los recursos de las 3 apis del grupo.\r\n            El dato de los matrimonios ha sido tratado para unificar una media común: (avg_wm+avg_m)/2.";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$q, 104, 4, 2537);
+    			script0.defer = true;
+    			add_location(script0, file$q, 105, 4, 2544);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$q, 105, 4, 2608);
+    			script1.defer = true;
+    			add_location(script1, file$q, 106, 4, 2643);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$q, 106, 4, 2684);
+    			script2.defer = true;
+    			add_location(script2, file$q, 107, 4, 2747);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$q, 107, 4, 2762);
-    			add_location(h2, file$q, 112, 7, 2910);
+    			script3.defer = true;
+    			add_location(script3, file$q, 108, 4, 2853);
+    			add_location(head, file$q, 104, 0, 2532);
+    			add_location(h2, file$q, 113, 7, 3000);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$q, 115, 8, 3071);
+    			add_location(div, file$q, 116, 8, 3161);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$q, 116, 8, 3107);
+    			add_location(p, file$q, 117, 8, 3197);
     			attr_dev(figure, "class", "highcharts-figure svelte-5ufr06");
-    			add_location(figure, file$q, 114, 7, 3027);
-    			add_location(main, file$q, 110, 3, 2886);
+    			add_location(figure, file$q, 115, 7, 3117);
+    			add_location(main, file$q, 111, 3, 2976);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor, remount) {
-    			append_dev(document.head, script0);
-    			append_dev(document.head, script1);
-    			append_dev(document.head, script2);
-    			append_dev(document.head, script3);
-    			insert_dev(target, t0, anchor);
+    			insert_dev(target, head, anchor);
+    			append_dev(head, script0);
+    			append_dev(head, t0);
+    			append_dev(head, script1);
+    			append_dev(head, t1);
+    			append_dev(head, script2);
+    			append_dev(head, t2);
+    			append_dev(head, script3);
+    			insert_dev(target, t3, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, h2);
-    			append_dev(main, t2);
+    			append_dev(main, t5);
     			mount_component(button, main, null);
-    			append_dev(main, t3);
+    			append_dev(main, t6);
     			append_dev(main, figure);
     			append_dev(figure, div);
-    			append_dev(figure, t4);
+    			append_dev(figure, t7);
     			append_dev(figure, p);
     			current = true;
-    			if (remount) dispose();
-    			dispose = listen_dev(script3, "load", loadGraph$5, false, false, false);
+    			if (remount) run_all(dispose);
+
+    			dispose = [
+    				listen_dev(script0, "load", loadGraph$5, false, false, false),
+    				listen_dev(script1, "load", loadGraph$5, false, false, false),
+    				listen_dev(script2, "load", loadGraph$5, false, false, false),
+    				listen_dev(script3, "load", loadGraph$5, false, false, false)
+    			];
     		},
     		p: function update(ctx, [dirty]) {
     			const button_changes = {};
@@ -52483,14 +52506,11 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			detach_dev(script0);
-    			detach_dev(script1);
-    			detach_dev(script2);
-    			detach_dev(script3);
-    			if (detaching) detach_dev(t0);
+    			if (detaching) detach_dev(head);
+    			if (detaching) detach_dev(t3);
     			if (detaching) detach_dev(main);
     			destroy_component(button);
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -52591,6 +52611,7 @@ var app = (function () {
     }
 
     function instance$r($$self, $$props, $$invalidate) {
+    	loadGraph$5();
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
