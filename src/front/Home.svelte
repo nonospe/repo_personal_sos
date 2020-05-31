@@ -12,6 +12,7 @@
 		<button type="button"   class="btn btn-outline-success"  onclick="window.location.href='#/global-suicides_API'"> API de Suicidios Globales</button>
 		<button type="button"   class="btn btn-primary"  onclick="window.location.href='#/integrations'">Integraciones</button>
 		<button type="button"   class="btn btn-secondary"  onclick="window.location.href='#/analytics'">Gráfico Grupo</button>
+		<button type="button"   class="btn btn-dark"  onclick="window.location.href='#/about'">Vídeos</button>
 	</div>
 
 </body>

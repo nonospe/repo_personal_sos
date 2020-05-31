@@ -5,6 +5,7 @@
 	import globalMarriages from './MarriagesGUI/App.svelte'; // Sera donde se carga la tabla de datos 
 	import EditMarriage from './MarriagesGUI/EditMarriage.svelte';
 	import NotFound from './NotFound.svelte';
+	import about from './about.svelte';
 
 	import SuicidesTable from './global-suicides_GUI/App.svelte';
 	import editSuicide from './global-suicides_GUI/editSuicide.svelte';
@@ -42,6 +43,7 @@
 		"/integrations": integrations,
 		"/analytics": analytics,
 		"/integrations_suicides_external": integrations_suicides_external,
+		"/about": about,
 		
 		"*": NotFound
 	};
