@@ -11,10 +11,10 @@
     const resData = await fetch(URL_BASE);
     let MyData = await resData.json();
     
-    let countries = Array.from(new Set(MyData.map((d) => {return d.country+" "+d.year;})));
-    let mens = Array.from(new Set(MyData.map((d) => {return d.men;})));
-    let womens = Array.from(new Set(MyData.map((d) => {return d.women;})));
-    let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
+    let countries = Array.from(MyData.map((d) => {return d.country+" "+d.year;}));
+    let mens = Array.from(MyData.map((d) => {return d.men;}));
+    let womens = Array.from(MyData.map((d) => {return d.women;}));
+    let averages = Array.from(MyData.map((d) => {return d.average;}));
 
     let data_countries = [];
     let data_mens = [];

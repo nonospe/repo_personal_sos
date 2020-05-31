@@ -12,8 +12,8 @@
     const resData = await fetch(URL_BASE);
     let MyData = await resData.json();
     
-    let countries = Array.from(new Set(MyData.map((d) => {return d.country+d.year;})));
-    let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
+    let countries = Array.from(MyData.map((d) => {return d.country;}));
+    let years = Array.from(MyData.map((d) => {return d.year;}));
   
     const URL_BASE_EXT = "https://www.etnassoft.com/api/v1/get/?category=libros_programacion&criteria=most_viewed";
     console.log("fetch a " + URL_BASE_EXT);
@@ -23,16 +23,23 @@
     console.log("Mydata ext:");
     console.log(MyData_Ext);
 
+    let data_ext = [];
+    MyData_Ext.forEach(aux => data_ext.push(parseInt(aux.publisher_date)));
+    console.log("Datos externos:");
+    console.log(data_ext);
 
+    let years_public = Array.from(new Set(MyData_Ext.map((d) => {return d.publisher_date;})));
+    console.log("Datos externos2 no muestra repetidos:");
+    console.log(years_public);
     
-    console.log("Graph_NONO y basket");
+    console.log("Graph_Ext1");
 
     Highcharts.chart('container', {
         chart: {
             type: 'bar'
         },
         title: {
-            text: 'Integración con SOS1920-22.'
+            text: 'Integración con Api Externa 1.'
         },
         subtitle: {
             text: 'La relacion entre los datos no tiene lógica.'
@@ -46,7 +53,7 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Suicidios por cada 100.000 personas y triples de la api og-basket-stats',
+                text: 'Años de media de suicidios frente a años de publicaciones de libros de programación',
                 align: 'high'
             },
             labels: {
@@ -54,7 +61,7 @@
             }
         },
         tooltip: {
-            valueSuffix: 'Personas'
+            valueSuffix: 'Años'
         },
         plotOptions: {
             bar: {
@@ -79,12 +86,12 @@
             enabled: false
         },
         series: [{
-            name: 'Triples',
-            data: averages
+            name: 'Años Suicidios',
+            data: years
         },
          {
-            name: 'Media',
-            data: averages
+            name: 'Años publiaciones',
+            data: data_ext
         }]
     });
     }

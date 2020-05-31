@@ -12,14 +12,14 @@
     const resData = await fetch(URL_BASE);
     let MyData = await resData.json();
     
-    let countries = Array.from(new Set(MyData.map((d) => {return d.country+d.year;})));
-    let averages = Array.from(new Set(MyData.map((d) => {return d.average;})));
+    let countries = Array.from(MyData.map((d) => {return d.country+d.year;}));
+    let averages = Array.from(MyData.map((d) => {return d.average;}));
   
     const URL_BASE_grupo_22 = "/api/v1/og-basket-stats";
     console.log("fetch a " + URL_BASE_grupo_22);
     const resData_4 = await fetch(URL_BASE_grupo_22);
     let MyData_4 = await resData_4.json();
-    let avg_4 = Array.from(new Set(MyData_4.map((d) => {return d.threepoints;})));
+    let avg_4 = Array.from(MyData_4.map((d) => {return d.threepoints;}));
     console.log("Datos triples:");
     console.log(avg_4);
 
