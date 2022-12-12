@@ -24,7 +24,7 @@
     "billboard.js": "^1.12.9",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "highcharts": "^8.1.0",
     "nedb": "^1.8.0",
     "request": "^2.88.2",
